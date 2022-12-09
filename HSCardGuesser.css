@@ -7,11 +7,20 @@ footer{
     background-color: #3e3e3e;
     font-family: Arial, Helvetica;
     max-height: 200px;
+    justify-content: flex-end;
+}footer img{
+    max-height: 12pt;
+    margin: auto 5px;
 }
 
 .rules{
     max-width: 270px;
 }
+
 .card-container{
+    display: flex;
     font-weight: bolder;
+    justify-content: flex-start;
+    align-items: center;
+    
 }
