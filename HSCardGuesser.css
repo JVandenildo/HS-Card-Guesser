@@ -4,23 +4,22 @@ body{
     color: whitesmoke;
 }
 footer{
-    background-color: #3e3e3e;
+    background-color: #1e1e1e;
+    width: 100%;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
     font-family: Arial, Helvetica;
-    max-height: 200px;
-    justify-content: flex-end;
 }footer img{
     max-height: 12pt;
+    max-width: 12pt;
     margin: auto 5px;
 }
 
 .rules{
-    max-width: 270px;
+    max-width: 250px;
 }
 
 .card-container{
-    display: flex;
-    font-weight: bolder;
-    justify-content: flex-start;
-    align-items: center;
-    
+    position: center;
 }
