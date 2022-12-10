@@ -1,25 +1,41 @@
 body{
     background-color: #252525;
     font-family: sans-serif;
-    color: whitesmoke;
+    color: #84E6FC;
 }
 footer{
     background-color: #1e1e1e;
     width: 100%;
     padding: 10px;
-    position: absolute;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     bottom: 0;
     font-family: Arial, Helvetica;
 }footer img{
     max-height: 12pt;
     max-width: 12pt;
     margin: auto 5px;
+}footer strong, b{
+    color: #637db3;
 }
 
 .rules{
-    max-width: 250px;
+    max-width: 300px;
 }
 
 .card-container{
-    position: center;
+    margin: 35px auto;
+    display: flex;
+    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}.card-container img{
+    max-height: 75%;
+    max-width: 75%;
+}.card-container h1, h2, h3{
+    color: #dcc55c;
 }
