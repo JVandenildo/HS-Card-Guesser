@@ -8,7 +8,7 @@
     <title>Hearthstone Card Guesser</title>
 </head>
 <body>
-    <div class="main-container">
+    <div class="master">
         <!-- explanations about the game-->
         <div class="rules">
             <p>The game Hearthstone is a property of Blizzard Entertainment, all rights are reserved to them. The work done here is fan made.<br>Please visit <a href="https://hearthstone.blizzard.com/">playhearthstone.com</a> to learn about the original game.</p>
@@ -20,19 +20,60 @@
                 <li>Win the game who gather most of the points.</li>
                 <li>The amount of points on each round depends on how many clues the player received.</li>
             </ol>
+            <h3>Clues</h3>
+            The game begins with a "free clue" (which mean the player don't lose points if doesn't get the card right), this clue gives out which type of card the player is dealing with.The following points are given depending on it.<br>
+            Card types and quantity of clues are:
+            <ul>
+                <li>Minions.</li>
+                <ol>
+                    <li>Types (undead, naga, murloc, etc.);</li>
+                    <li>Expansion;</li>
+                    <li>Rarity;</li>
+                    <li>Mana cost;</li>
+                    <li>Class;</li>
+                    <li>Special mechanics (reborn, charge, etc.);</li>
+                    <li>Attack & Life;</li>
+                    <li>Flavor (funny text that goes with the card).</li>
+                </ol>
+                <li>Spells.</li>
+                <ol>
+                    <li>Types (fire, arcane, etc.);</li>
+                    <li>Expansion;</li>
+                    <li>Rarity;</li>
+                    <li>Mana cost;</li>
+                    <li>Class;</li>
+                    <li>Special mechanics (twinspell, freeze, etc.);</li>
+                    <li>Flavor (funny text that goes with the card).</li>
+                </ol>
+                <li>Others (Quests, heroes, places, etc).</li>
+                <ol>
+                    <li>Expansion;</li>
+                    <li>Rarity;</li>
+                    <li>Mana cost;</li>
+                    <li>Flavor;</li>
+                    <li>Class.</li>
+                </ol>
+            </ul>
+            <p style="font-size: 10pt; "><strong>Note:</strong> I don't know how to set a multiplayer match, yet. So take your own point notes and compare to your adversaries.</p>
         </div>
-        
-        <!-- section for game itself-->
-        <div class="card-container">
-            <h3>Card 1</h3>
-                <picture>
-                    <img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/49715e42324ffb11328cf4aa8ec3e7ad0b48bb6c45dba17eb42f53a8f162b554.png" type="image/png">
-                </picture>
+        <div class="game-container"> <!-- section for game itself-->
+            <h2>Card 1</h2>
+            <picture>
+                <img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/49715e42324ffb11328cf4aa8ec3e7ad0b48bb6c45dba17eb42f53a8f162b554.png" type="image/png">
+            </picture>
+            <div class="lucky-guess"> <!-- guess input-->
+                <p><input type="search" placeholder="Guess" name="lucky-guess"><button>JACKPOT!</button></p>
+            </div>
+            <div class="clues"> <!-- clues/rounds-->
+                <h2>Clues</h2>
+                <p>1st clue:</p>
+            </div>
         </div>
     </div>
+    <!-- info of where to find me-->
     <footer>
-        <b>Author:</b> Jose Vandenildo<br>
-        <b>Contact:</b><br>
+        <strong>Author:</strong> Jose Vandenildo<br>
+        <strong>Contact:</strong>
         <address>
             <img src="https://cdn-icons-png.flaticon.com/512/2164/2164967.png"><a href="mailto:jvandenildo@gmail.com">jvandenildo@gmail.com</a>
             <img src="https://cdn-icons-png.flaticon.com/512/4423/4423663.png"><a href="https://t.me/JVandenildo">@JVandenildo</a>

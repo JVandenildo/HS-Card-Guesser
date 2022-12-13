@@ -1,18 +1,29 @@
 body{
     background-color: #252525;
     font-family: sans-serif;
+    margin: 0%;
+    font-size: 12pt;
     color: #84E6FC;
+} body h1, h2, h3, h4, h4, h5, h6{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #e3d068;
 }
+.master{
+    top: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    height: fit-content;
+}
+
 footer{
     background-color: #1e1e1e;
-    width: 100%;
     padding: 10px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    height: fit-content;
+    right: 0px;
+    text-align: center;
     justify-content: center;
-    bottom: 0;
     font-family: Arial, Helvetica;
 }footer img{
     max-height: 12pt;
@@ -23,19 +34,44 @@ footer{
 }
 
 .rules{
-    max-width: 300px;
+    max-width: 350px;
+    padding: 5px 10px 75px;
+    background-color: #1e1e1e;
+    top: 0%;
+    right: 0%;
+    border: 0%;
 }
 
-.card-container{
-    margin: 35px auto;
+.game-container{
     display: flex;
     flex-direction: column;
-    flex-direction: row;
     align-items: center;
-    justify-content: center;
-}.card-container img{
-    max-height: 75%;
-    max-width: 75%;
-}.card-container h1, h2, h3{
-    color: #dcc55c;
+    justify-content: flex-start;
+    right: 0;
+    top: 0;
+    width: calc(100% - 350px)
+}.game-container img{
+    max-width: 250px;
+    max-height: 250px;
+}
+
+input{
+    border: 2px solid #49484e;
+    border-right-width: 0px;
+    padding: 10px;
+    border-radius: 25px 0px 0px 25px;
+    outline: none;
+}button{
+    border: 2px solid #49484e;
+    border-left-width: 0px;
+    padding: 10px;
+    background-color: silver;
+    border-radius: 0px 25px 25px 0px;
+    outline: none;
+}
+.clues{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
