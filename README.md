@@ -5,4 +5,4 @@ As the name suggests is a guessing game, the player must guess the card with giv
 
 This first branch contains the basic layout, further improvements will be done (hopefully!).
 
-# REMEMBER THE ORIGINAL GAME "HEARTHSTONE" IS A PROPERTY OF BLIZZARD ENTERTAINMENT, ALL RIGHTS ARE RESERVED TO THEM. #
+# REMEMBER THE ORIGINAL GAME "HEARTHSTONE" IS A PROPERTY OF BLIZZARD ENTERTAINMENT, ALL RIGHTS ARE RESERVED TO THEM. THE WORK DONE HERE IS FAN MADE. #
