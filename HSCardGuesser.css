@@ -24,7 +24,7 @@ footer{
     right: 0px;
     text-align: center;
     justify-content: center;
-    font-family: Arial, Helvetica;
+    font-family: Arial, Helvetica, sans-serif;
 }footer img{
     max-height: 12pt;
     max-width: 12pt;
