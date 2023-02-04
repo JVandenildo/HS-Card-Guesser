@@ -1,8 +1,5 @@
-# ignoring all .mp4 files
-*.mp4
-
-# ignoring all .pdf files
-*.pdf
+# ignoring all .json files
+*.json
 
 # ignoring workspace settings
 .vscode/
