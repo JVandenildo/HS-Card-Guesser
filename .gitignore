@@ -1,5 +1,2 @@
-# ignoring all .json files
-*.json
-
 # ignoring workspace settings
 .vscode/

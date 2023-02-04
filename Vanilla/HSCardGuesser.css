@@ -94,7 +94,7 @@ footer{
 #cardSpitter:active {
     background-color: #787360;
     border: 0.2rem solid #787360;
-    border-radius: 2rem;
+    border-radius: 42%;
     box-shadow: 0rem 0rem 0rem #5CD1CF;
     text-shadow: 0rem 0rem 0rem #5CD1CF;
     color: #5CD1CF;
