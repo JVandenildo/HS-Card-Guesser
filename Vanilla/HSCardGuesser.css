@@ -1,13 +1,41 @@
+html, body{
+    min-height: 100%;
+    min-width: 100%;
+}
+
 body{
     background-color: #252525;
     font-family: sans-serif;
     margin: 0%;
     font-size: 12pt;
     color: #84E6FC;
-} body h1, h2, h3, h4, h4, h5, h6{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #e3d068;
 }
+h1, h2, h3, h4, h4, h5, h6, button{
+    font-family: bitter;
+    font-weight: bold;
+}
+h1, h2, h3, h4, h5, h6{
+    text-shadow: 0px 0px 10px #3a3a3a;
+}
+
+input, button, label{
+    padding: 1rem;
+    border-radius: 85px;
+    outline: none;
+}
+
+a:link{
+    color: #46D7FF;
+    text-decoration: none;
+}a:visited{
+    color: #959780;
+    text-decoration: none;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
 .master{
     top: 0;
     right: 0;
@@ -24,17 +52,16 @@ footer{
     right: 0px;
     text-align: center;
     justify-content: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica;
 }footer img{
     max-height: 12pt;
     max-width: 12pt;
     margin: auto 5px;
-}footer strong, b{
-    color: #637db3;
 }
 
 .rules{
-    max-width: 350px;
+    max-width: 22rem;
+    height: fit-content;
     padding: 5px 10px 75px;
     background-color: #1e1e1e;
     top: 0%;
@@ -49,29 +76,80 @@ footer{
     justify-content: flex-start;
     right: 0;
     top: 0;
-    width: calc(100% - 350px)
+    width: calc(100% - 22rem);
 }.game-container img{
-    max-width: 250px;
-    max-height: 250px;
+    width: 17rem;
+    height: 22rem;
 }
 
-input{
-    border: 2px solid #49484e;
-    border-right-width: 0px;
-    padding: 10px;
-    border-radius: 25px 0px 0px 25px;
-    outline: none;
-}button{
-    border: 2px solid #49484e;
-    border-left-width: 0px;
-    padding: 10px;
-    background-color: silver;
-    border-radius: 0px 25px 25px 0px;
-    outline: none;
+#cardSpitter{
+    background-color: #918C74;
+    border: 0.2rem solid #918C74;
+    border-radius: 42%;
+    margin: 2rem;
+    box-shadow: 0rem 0rem 1rem #68EAE7;
+    text-shadow: 0rem 0rem 0.1rem #68EAE7;
+    color: #68eae7;
 }
+#cardSpitter:active {
+    background-color: #787360;
+    border: 0.2rem solid #787360;
+    border-radius: 2rem;
+    box-shadow: 0rem 0rem 0rem #5CD1CF;
+    text-shadow: 0rem 0rem 0rem #5CD1CF;
+    color: #5CD1CF;
+}
+
+.lucky-guess{
+    border-radius: 85px;
+    border: 1vh solid #1e1e1e;
+    background: #d5be94;
+    margin: 0.6vh;
+    padding: 0.6vh;
+}
+#inputGuess{
+    border: 5px solid #d5be94;
+    background: #d5be94;
+}
+#buttonGuess{
+    background: #f1f012;
+    border-right: 4px solid #737308;
+    border-bottom: 4px solid #737308;
+    border-left: 0px solid #f1f012;
+    border-top: 0px solid #f1f012;
+    box-shadow: 0px 0px 1.6vh #595c55;
+    margin: none;
+}#buttonGuess:active{
+    border: 2px solid #f1f012;
+    border-right: 2px solid #f1f012;
+    border-bottom: 2px solid #f1f012;
+    border-left: 2px solid #f1f012;
+    border-top: 2px solid #f1f012;
+    box-shadow: 0px 0px 0vh #595c55;
+    margin: none;
+}
+
 .clues{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    height: 5px;
+    overflow: hidden;
+}
+#freeClue, #Clue1, #Clue2, #Clue3, #Clue4, #Clue5, #Clue6{
+    height: 1rem;
+    margin: 0.5rem auto;
+    text-align: left;
+}
+
+.lastGuesses{
+    background: #1e1e1e;
+    border-radius: 15%;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 2vh 2vw;
+    padding: 0.6vh 0.6vw;
+    border-radius: 40%;
 }

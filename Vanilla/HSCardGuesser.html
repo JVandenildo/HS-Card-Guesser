@@ -11,16 +11,14 @@
     <div class="master">
         <!-- explanations about the game-->
         <div class="rules">
-            <p>The game Hearthstone is a property of Blizzard Entertainment, all rights are reserved to them. The work done here is fan made.<br>Please visit <a href="https://hearthstone.blizzard.com/">playhearthstone.com</a> to learn about the original game.</p>
+            <p style="font-size: medium;">The game Hearthstone is a property of Blizzard Entertainment, all rights are reserved to them. The work done here is fan made.<br>Please visit <a href="https://hearthstone.blizzard.com/">playhearthstone.com</a> to learn about the original game.</p>
             <h2>Rules</h2>
             The game rules must be clear and simple to all players. If something ain't quite right, contact the author.
             <ol>
-                <li>Minimum of 2 players.</li>
-                <li>Players must agree on number of rounds, but the default is 5.</li>
-                <li>Win the game who gather most of the points.</li>
-                <li>The amount of points on each round depends on how many clues the player received.</li>
+                <li>Win the game who gather most of the points;</li>
+                <li>The amount of points on each card depends on how many clues the player received.</li>
             </ol>
-            <h3>Clues</h3>
+            <h2>Clues</h2>
             The game begins with a "free clue" (which means the player doesn't lose points if gets the guess wrong), this clue gives out which type of card the player is dealing with.The following points are given depending on it.<br>
             Card types and quantity of clues are:
             <ul>
@@ -57,12 +55,13 @@
             <p style="font-size: 10pt; "><strong>Note:</strong> I don't know how to set a multiplayer match, yet. So take your own point notes and compare to your adversaries.</p>
         </div>
         <div class="game-container"> <!-- section for game itself-->
-            <h2>Card 1</h2>
+            <h2>Feeling lucky today?</h2>
             <picture>
                 <img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/49715e42324ffb11328cf4aa8ec3e7ad0b48bb6c45dba17eb42f53a8f162b554.png" type="image/png">
             </picture>
+            <div class="spitCard"><button id="cardSpitter" onclick="cardSpit()">CARD SPITTER</button></div>
             <div class="lucky-guess"> <!-- guess input-->
-                <p><input type="search" placeholder="Guess" name="lucky-guess"><button>JACKPOT!</button></p>
+                <input type="search" placeholder="Guess" id="inputGuess"><button id="buttonGuess">JACKPOT!</button>
             </div>
             <div class="clues"> <!-- clues/rounds-->
                 <h2>Clues</h2>
@@ -70,6 +69,7 @@
             </div>
         </div>
     </div>
+
     <!-- info of where to find me-->
     <footer>
         <strong>Author:</strong> Jose Vandenildo<br>
