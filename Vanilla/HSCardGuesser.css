@@ -15,7 +15,7 @@ h1, h2, h3, h4, h4, h5, h6, button{
     font-weight: bold;
 }
 h1, h2, h3, h4, h5, h6{
-    text-shadow: 0px 0px 10px #3a3a3a;
+    text-shadow: 0px 0px 0.8rem #3a3a3a;
 }
 
 input, button, label{
@@ -57,6 +57,7 @@ footer{
     max-height: 12pt;
     max-width: 12pt;
     margin: auto 5px;
+    border-radius: 49%;
 }
 
 .rules{
