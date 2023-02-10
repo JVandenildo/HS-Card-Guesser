@@ -16,41 +16,52 @@
             The game rules must be clear and simple to all players.
             <ol>
                 <li>Win the game who gather most of the points;</li>
-                <li>The amount of points on each card depends on how many clues the player received.</li>
+                <li>The amount of points on each card depends on how many clues the player received for a correct guess;</li>
+                <li>A correct guess must have all characters of the card correct (may have lower case);</li>
+                <li>After a game over, it's game over.</li>
             </ol>
+            <p style="font-size: small;"><strong>Note:</strong> I don't know how to set a multiplayer match, yet. So take your own point notes and compare to your adversaries.</p>
             <h2>Clues</h2>
-            The game begins with a "free clue" (which means the player doesn't lose points if gets the guess wrong), this clue gives out which type of card the player is dealing with.The following points are given depending on it.<br>
-            Card types and quantity of clues are:
+            The game begins with a "free clue" (it's free because the player doesn't lose points if guesses the card wrongly), this clue gives out which type of card the player is dealing with, followed by the artist(s) who drew the art.<br>
+            Card types and its clues are:
             <ul>
                 <li>Minions.</li>
                 <ol>
-                    <li>Types (murloc, dragon, etc.);</li>
-                    <li>Expansion;</li>
+                    <li>Type (murloc, dragon, etc.);</li>
                     <li>Rarity;</li>
                     <li>Mana cost;</li>
+                    <li>Attack and health;</li>
                     <li>Class;</li>
-                    <li>Special mechanics (reborn, charge, etc.);</li>
-                    <li>Attack & Life.</li>
+                    <li>Card's text;</li>
+                    <li>Flavor text.</li>
                 </ol>
                 <li>Spells.</li>
                 <ol>
-                    <li>Types (fire, arcane, etc.);</li>
-                    <li>Expansion;</li>
+                    <li>School of magic (fire, arcane, etc.);</li>
                     <li>Rarity;</li>
                     <li>Mana cost;</li>
                     <li>Class;</li>
-                    <li>Special mechanics (twinspell, freeze, etc.).</li>
+                    <li>Card's text;</li>
+                    <li>Flavor text.</li>
                 </ol>
-                <li>Others (Quests, heroes, places, etc).</li>
+                <li>Weapons.</li>
                 <ol>
-                    <li>Expansion;</li>
+                    <li>Attack and durability;</li>
                     <li>Rarity;</li>
                     <li>Mana cost;</li>
-                    <li>Flavor;</li>
+                    <li>Class;</li>
+                    <li>Flavor text.</li>
+                </ol>
+                <li>Heroes.</li>
+                <ol>
+                    <li>Armor and health (if has health);</li>
+                    <li>Rarity;</li>
+                    <li>Mana cost;</li>
+                    <li>Card's text;</li>
+                    <li>Flavor text;</li>
                     <li>Class.</li>
                 </ol>
             </ul>
-            <p style="font-size: small; "><strong>Note:</strong> I don't know how to set a multiplayer match, yet. So take your own point notes and compare to your adversaries.</p>
         </div>
         <div class="game-container"> <!-- section for game itself-->
             <h2>Feeling lucky today?</h2>
@@ -59,12 +70,10 @@
             </picture>
             <div class="spitCard"><button id="cardSpitter" onclick="cardSpit()">CARD SPITTER</button></div>
             <div class="lucky-guess"> <!-- guess input-->
-                <input type="text" placeholder="Guess the card here" id="inputGuess"><button id="buttonGuess">JACKPOT!</button>
+                <input type="text" placeholder="Guess" id="inputGuess"><button id="buttonGuess">JACKPOT!</button>
             </div>
-            <div class="clues"> <!-- clues-->
-                <h2>Clues</h2>
-                <p>Free clue:</p>
-            </div>
+            <div class="clues"><!-- clues--></div>
+            <div class="finalStatement"><!-- final saying, weather win or lose --></div>
         </div>
     </div>
     <div class="lastGuesses">
@@ -73,7 +82,6 @@
     <!-- info of where to find me-->
     <footer>
         <strong>Author:</strong> Jose Vandenildo<br>
-        <strong>Contact:</strong>
         <address>
             <a href="mailto:jvandenildo@gmail.com"><img src="https://cdn-icons-png.flaticon.com/512/2164/2164967.png">jvandenildo@gmail.com</a>
             <a href="https://t.me/JVandenildo"><img style="filter: invert(99%);" src=https://cdn.icon-icons.com/icons2/2428/PNG/512/telegram_black_logo_icon_147073.png>@JVandenildo</a>

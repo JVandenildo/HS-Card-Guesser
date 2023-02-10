@@ -5,19 +5,18 @@ html, body{
 
 body{
     background-color: #252525;
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0%;
     font-size: 12pt;
-    color: #84E6FC;
+    color: lightgray;
 }
 h1, h2, h3, h4, h4, h5, h6, button{
-    font-family: bitter;
-    font-weight: bold;
+    font-family: bitter, bree-serif;
+    font-weight: bolder;
 }
-h1, h2, h3, h4, h5, h6{
-    text-shadow: 0px 0px 0.5rem #3a3a3a;
+h1, h2, h3, h4, h4, h5, h6{
+    color: whitesmoke;
 }
-
 input, button, label{
     padding: 1rem;
     border-radius: 85px;
@@ -79,15 +78,17 @@ footer{
     top: 0;
     width: calc(100% - 22rem);
 }.game-container img{
-    width: 17rem;
-    height: 22rem;
+    max-width: 17rem;
+    /* max-height: 22rem; */
 }
 
 #cardSpitter{
-    background-color: #918C74;
-    border: 0.2rem solid #918C74;
+    background-color: darkgray;
+    border: 0.2rem solid darkgray;
     border-radius: 42%;
+    font-size: 1.4rem;
     margin: 2rem;
+    width: calc(17rem - 0.8rem);
     box-shadow: 0rem 0rem 1rem #68EAE7;
     text-shadow: 0rem 0rem 0.1rem #68EAE7;
     color: #68eae7;
@@ -104,13 +105,14 @@ footer{
 .lucky-guess{
     border-radius: 85px;
     border: 1vh solid #1e1e1e;
-    background: #d5be94;
+    background: lightsalmon;
     margin: 0.6vh;
     padding: 0.6vh;
 }
 #inputGuess{
-    border: 5px solid #d5be94;
-    background: #d5be94;
+    border: 5px solid lightsalmon;
+    background: lightsalmon;
+    min-width: 14rem;
 }
 #buttonGuess{
     background: #f1f012;
@@ -135,17 +137,21 @@ footer{
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    height: 5px;
-    overflow: hidden;
+    padding: 0.5rem;
 }
-#freeClue, #Clue1, #Clue2, #Clue3, #Clue4, #Clue5, #Clue6{
-    height: 1rem;
-    margin: 0.5rem auto;
-    text-align: left;
+
+.finalStatement{
+    display: block;
+    margin: 3rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: lighter;
+    font-style: oblique;
+    font-size: larger;
+    text-align: center;
 }
 
 .lastGuesses{
-    background: #c5a986;
+    background: lightsalmon;
     position: fixed;
     right: 0;
     bottom: 0;
