@@ -84,7 +84,7 @@ function displayCard (cardAPI) {
     card.mechanics = mechanics;
     card.set = set;
     card.attack = attack;
-    card.durability =  durability;
+    card.durability = durability;
     card.health = health;
     card.armor = armor;
     bruce();
@@ -93,7 +93,8 @@ function displayCard (cardAPI) {
     if(card.artist == undefined){
         freeClue = `<div><b style="font-size: 13pt; color: whitesmoke">Free clue:</b> a ${card.type}.</div>`;
     }
-    console.log(card.title);
+    // console.log(card.title);
+    console.log(card.id);
     
     clues.innerHTML = `<h2>Clues</h2>${freeClue}`;
 }
