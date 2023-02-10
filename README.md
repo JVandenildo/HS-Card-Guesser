@@ -8,13 +8,13 @@ As the name suggests, this is a guessing game, the player must guess the card wi
 
 ## How to play it  
 
-As said previously, this is a guessing game, in order to get points the player needs to guess the name of a card right. But to guess a card, first is needed the card, to get it click on the button "**CARD SPITTER**". With your card generated (which you shouldn't know the name), you will receive a free clue – what type of card it is (minion, spell, etc.) – and you finally may name the card on the appropriate space. In case you are right, you are right. Game is over, you win!  
+As said previously, this is a guessing game, in order to get points the player needs to guess the name of a card right. But to guess a card, first is needed the card, to get it click on the button "**CARD SPITTER**". With your card generated (which you shouldn't know the name), you will receive a free clue – what type of card it is (minion, spell, etc.) followed by the artist(s) who drew the art – and you finally may name the card on the appropriate space. In case you are right, you are right. Game is over, you win!  
 But sometimes you are not right. Here comes another chance to get it right!  
-When you don't get the card's name right another clue will be given, but this time less points will be given at the end of the game.  
+When you don't get the card's name right another clue will be given, but this time less points will be given at the end of the game. When all clues have been given, and the player guess the card wrongly, it's game over.  
   
 ## About Versions  
   
-Some points I'm considering now, they are:  
+Some updates I'm considering now, they are:  
 
 - Updating this project with JS frameworks (react, for instance);  
 - Most importantly is implement a filter to let players choose the set they want to guess from. For example, the player could set to only guess cards from Battlegrounds (amazing game mode, btw. Congrats Team 5 for that one).
