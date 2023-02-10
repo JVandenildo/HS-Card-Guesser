@@ -93,7 +93,7 @@ function displayCard (cardAPI) {
     if(card.artist == undefined){
         freeClue = `<div><b style="font-size: 13pt; color: whitesmoke">Free clue:</b> a ${card.type}.</div>`;
     }
-    // console.log(card.title);
+    console.log(card.title);
     
     clues.innerHTML = `<h2>Clues</h2>${freeClue}`;
 }
@@ -211,15 +211,22 @@ function resetGame(){
 function gameWon(){
     buttonGuess.removeEventListener("click", luckTester);
     let initialPoints = 100;
-    let finalPoints = Math.round(initialPoints/card.Tries);
+    let finalPoints;
 
     switch (card.Tries) {
         case 1:
+            finalPoints = Math.round(initialPoints/1);
             finalStatement.innerHTML = `Congratulations, champion!<br>After ${card.Tries} guess, you've earned ${finalPoints} points.`;
             
             break;
+        case 2:
+            finalPoints = Math.round(initialPoints/1);
+            finalStatement.innerHTML = `Congratulations, champion!<br>After ${card.Tries} guesses, you've earned ${finalPoints} points.`;
+
+            break;
     
         default:
+            finalPoints = Math.round(initialPoints/card.Tries);
             finalStatement.innerHTML = `Congratulations, champion!<br>After ${card.Tries} guesses, you've earned ${finalPoints} points.`;
 
             break;
