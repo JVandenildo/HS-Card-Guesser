@@ -4,6 +4,7 @@ var lastGuessesList = [];
 
 var card = {
     title: "none",
+    id: undefined,
     cardClass: undefined,
     rarity: undefined,
     spellSchool: undefined,
@@ -36,8 +37,9 @@ function displayCard (cardAPI) {
     let date = new Date();
     let randomNumber = Math.floor(Math.random(date) * 3800);
 
-    let { durability, attack, armor, health, artist, mechanics, name, cardClass, classes, rarity, spellSchool, race, text, type, flavor, cost, set } = cardAPI[randomNumber];
+    let { id, durability, attack, armor, health, artist, mechanics, name, cardClass, classes, rarity, spellSchool, race, text, type, flavor, cost, set } = cardAPI[randomNumber];
     card.title = name;
+    card.id = id;
     card.cardClass = `belongs to ${cardClass.toLowerCase()}s.`;
     if(cardClass === undefined){
         card.cardClass = classes;
@@ -45,7 +47,18 @@ function displayCard (cardAPI) {
     card.type = type.toLowerCase();
     card.cost = `costs ${cost} mana.`;
     card.flavor = flavor;
-    card.rarity = `${rarity.toLowerCase()} card.`;
+    switch (rarity){
+        case "FREE":
+            card.rarity = `a core set card.`;
+
+            break;
+        
+        default:
+            card.rarity = `${rarity.toLowerCase()} card.`;
+
+            break;
+
+    }
     switch (spellSchool) {
         case undefined:
             card.spellSchool = `this ${card.type} belongs to no school of magic.`;
@@ -233,7 +246,9 @@ function gameOver(){
 // function to ban some cards, wink ;)
 function bruce(){
     switch (card.set) {
-        case "HERO_SKINS": 
+        case "HERO_SKINS":
+        case "ENCHANTMENT":
+        case "HERO_POWER":
             console.log("Banned card.");
             cardSpit();
 
