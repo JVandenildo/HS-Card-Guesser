@@ -1,0 +1,39 @@
+html, body{
+    min-height: 100%;
+    min-width: 100%;
+}
+body{
+    background-color: #252525;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0%;
+    font-size: 12pt;
+    color: lightgray;
+}
+
+h1, h2, h3, h4, h4, h5, h6, button{
+    font-family: bitter, bree-serif;
+    font-weight: bolder;
+}
+h1, h2, h3, h4, h4, h5, h6{
+    color: whitesmoke;
+}
+h5, h6{
+    margin: auto;
+}
+
+input, button, label{
+    padding: 1rem;
+    border-radius: 85px;
+    outline: none;
+}
+button:hover{
+    cursor: pointer;
+}
+
+a:link{
+    color: #46D7FF;
+    text-decoration: none;
+}a:visited{
+    color: #959780;
+    text-decoration: none;
+}
