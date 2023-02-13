@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Footer from "./Footer";
 import Rules from "./Rules";
-import config from "../config.json"
+import config from "../config.json";
 
 const StyledHomePage = styled.div`
     display: flex;
@@ -9,13 +9,20 @@ const StyledHomePage = styled.div`
 
 export default function HomePage(){
     return (
-        <div>
-            <StyledHomePage>
-                <Rules/>
-                <Game/>
-            </StyledHomePage>
-            <Footer />
-        </div>
+        <>
+            <head>
+                <meta charset="utf-8"></meta>
+                <title>HS Card Guesser</title>
+                <link rel="icon" href={config.iconHS}></link>
+            </head>
+            <div>
+                <StyledHomePage>
+                    <Rules/>
+                    <Game/>
+                </StyledHomePage>
+                <Footer />
+            </div>
+        </>
     );
 }
 
@@ -42,15 +49,15 @@ const StyledGame = styled.div`
     }
 
     #cardSpitter{
-    background-color: darkgray;
-    border: 0.2rem solid darkgray;
-    border-radius: 42%;
-    font-size: 1.4rem;
-    margin: 2rem;
-    width: calc(17rem - 0.8rem);
-    box-shadow: 0rem 0rem 1rem #68EAE7;
-    text-shadow: 0rem 0rem 0.1rem #68EAE7;
-    color: #68eae7;
+        background-color: darkgray;
+        border: 0.2rem solid darkgray;
+        border-radius: 42%;
+        font-size: 1.4rem;
+        margin: 2rem;
+        width: calc(17rem - 0.8rem);
+        box-shadow: 0rem 0rem 1rem #68EAE7;
+        text-shadow: 0rem 0rem 0.1rem #68EAE7;
+        color: #68eae7;
     }
     #cardSpitter:active {
         background-color: #787360;
@@ -102,29 +109,29 @@ const StyledGame = styled.div`
     }
 
     .lastGuesses{
-    background: #faebd7;
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    padding: 0.6vh 0.6vw;
-    margin: 0.6vh;
-    border: 0.3rem solid #1e1e1e;
-    -webkit-text-fill-color: #1e1e1e;
-    height: fit-content;
+        background: #faebd7;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        padding: 0.6vh 0.6vw;
+        margin: 0.6vh;
+        border: 0.3rem solid #1e1e1e;
+        -webkit-text-fill-color: #1e1e1e;
+        height: fit-content;
     }
 `;
 
 function Game(){
     return(
         <StyledGame>{/* section for game itself */}
-            <h2>Feeling lucky today?</h2>
+            <h1>Feeling lucky today?</h1>
             <img src={config.cardBack}></img>
-            <div className="spitCard"><button id="cardSpitter">CARD SPITTER</button></div>
-            <div className="luckyGuess"> {/* guess input */}
+            {/* card generator */}<div className="spitCard"><button id="cardSpitter">CARD SPITTER</button></div>
+            {/* guess input */}<div className="luckyGuess">
                 <input type="text" placeholder="Guess" id="inputGuess"></input><button id="buttonGuess">JACKPOT!</button>
             </div>
-            <div className="clues">{/* clues */}</div>
-            <div className="finalStatement">{/* final saying, weather win or lose */}</div>
+            {/* clues */}<div className="clues"></div>
+            {/* win/lose statement */}<div className="finalStatement"></div>
             <div className="lastGuesses">
                 <h3>Last Guesses</h3>
             </div>
