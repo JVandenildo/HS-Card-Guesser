@@ -14,6 +14,7 @@ When you don't get the card's name right another clue will be given, but this ti
   
 ## About Versions  
   
+![Badge vanilla](https://img.shields.io/badge/VERSION-vanilla-informational)  
 Some updates I'm considering now, they are:  
 
 - Updating this project with JS frameworks (react, for instance);  
