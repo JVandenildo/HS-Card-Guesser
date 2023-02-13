@@ -8,9 +8,9 @@ As the name suggests, this is a guessing game, the player must guess the card wi
 
 ## Summary  
 
-* [How to play it](## How to play it)  
-* [About versions](## About versions)  
-* [Special thanks](## Special thanks)  
+* [How to play it](https://github.com/JVandenildo/HS-Card-Guesser/tree/react#how-to-play-it)  
+* [About versions](https://github.com/JVandenildo/HS-Card-Guesser/tree/react#about-versions)  
+* [Special thanks](https://github.com/JVandenildo/HS-Card-Guesser/tree/react#special-thanks)  
 
 ## How to play it  
 
@@ -21,6 +21,8 @@ When you don't get the card's name right another clue will be given, but this ti
 ## About versions  
   
 ![Badge version](https://img.shields.io/badge/VERSION-react-informational)
+
+Some others updates I am considering:  
 
 * Implement a filter to let players choose the set they want to guess from. For example, the player could set to only guess cards from Battlegrounds (amazing game mode, btw. Congrats Team 5 for that one).
 
