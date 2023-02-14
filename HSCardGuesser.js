@@ -3,23 +3,23 @@ const lastGuesses = document.querySelector('.lastGuesses');
 var lastGuessesList = [];
 
 var card = {
-    title: "none",
     id: undefined,
+    title: "none",
+    artist: undefined,
+    type: undefined,
     cardClass: undefined,
+    cost: undefined,
     rarity: undefined,
     spellSchool: undefined,
-    text: undefined,
-    type: undefined,
-    flavor: undefined,
-    cost: undefined,
-    mechanics: undefined,
-    artist: undefined,
-    set: undefined,
     race: undefined,
+    text: undefined,
+    flavor: undefined,
     attack: undefined,
     durability: undefined,
-    armor: undefined,
     health: undefined,
+    armor: undefined,
+    mechanics: undefined,
+    set: undefined,
 
     Tries: 0
 }
