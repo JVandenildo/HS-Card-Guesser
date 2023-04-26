@@ -87,11 +87,11 @@ function displayCard (cardAPI) {
     card.durability = durability;
     card.health = health;
     card.armor = armor;
-    bruce();
+    cardBanner();
 
-    let freeClue = `<div><b style="font-size: 13pt; color: whitesmoke">Free clue:</b> a ${card.type}, art drew by ${card.artist}.</div>`;
+    let freeClue = `<div><b style="font-size: 13pt; color: #fff9ed">Free clue:</b> a ${card.type}, art drew by ${card.artist}.</div>`;
     if(card.artist == undefined){
-        freeClue = `<div><b style="font-size: 13pt; color: whitesmoke">Free clue:</b> a ${card.type}.</div>`;
+        freeClue = `<div><b style="font-size: 13pt; color: #fff9ed">Free clue:</b> a ${card.type}.</div>`;
     }
     // console.log(card.title);
     console.log(card.id);
@@ -138,7 +138,7 @@ function luckTester(){
 function clueGenerator(){
     switch (card.type) {
         case "spell":
-            const spellClues = [card.spellSchool, card.rarity, card.cost, card.cardClass, card.text, card.flavor];
+            const spellClues = [card.flavor, card.spellSchool, card.rarity, card.cost, card.cardClass, card.text];
             
             if(card.Tries - 1 >= spellClues.length){gameOver();}
             else{
@@ -150,22 +150,22 @@ function clueGenerator(){
             break;
     
         case "minion":
-            const minionClues = [card.race, card.rarity, card.cost, `${card.attack}/${card.health}.`, card.cardClass, card.text, card.flavor];
+            const minionClues = [card.flavor, card.race, card.rarity, card.cost, `${card.attack}/${card.health}.`, card.cardClass, card.text];
             
             if(card.Tries - 1 >= minionClues.length){gameOver();}
             else{
-                clues.insertAdjacentHTML("beforeend", `<div><b style="font-size: 13pt; color: whitesmoke">Clue ${card.Tries}:</b> ${minionClues[card.Tries - 1]}</div>`);
+                clues.insertAdjacentHTML("beforeend", `<div><b style="font-size: 13pt; color: #fff9ed">Clue ${card.Tries}:</b> ${minionClues[card.Tries - 1]}</div>`);
                 lastGuessesList.push(inputGuess.value);
                 lastGuesses.insertAdjacentHTML("beforeend", `<p>${lastGuessesList[lastGuessesList.length - 1]}</p>`);}
 
             break;
 
         case "weapon":
-            const weaponClues = [`${card.attack}/${card.durability}.`, card.rarity, card.cost, card.text, card.cardClass, card.flavor];
+            const weaponClues = [card.flavor, `${card.attack}/${card.durability}.`, card.rarity, card.cost, card.text, card.cardClass];
             
             if(card.Tries - 1 >= weaponClues.length){gameOver();}
             else{
-                clues.insertAdjacentHTML("beforeend", `<div><b style="font-size: 13pt; color: whitesmoke">Clue ${card.Tries}:</b> ${weaponClues[card.Tries - 1]}</div>`);
+                clues.insertAdjacentHTML("beforeend", `<div><b style="font-size: 13pt; color: #fff9ed">Clue ${card.Tries}:</b> ${weaponClues[card.Tries - 1]}</div>`);
                 lastGuessesList.push(inputGuess.value);
                 lastGuesses.insertAdjacentHTML("beforeend", `<p>${lastGuessesList[lastGuessesList.length - 1]}</p>`);}
 
@@ -177,11 +177,11 @@ function clueGenerator(){
                 ArmorHP = `${card.armor} armor.`;
             }
 
-            const heroClues = [ArmorHP, card.rarity, card.cost, card.text, card.flavor, card.cardClass];
+            const heroClues = [card.flavor, ArmorHP, card.rarity, card.cost, card.text, card.cardClass];
             
             if(card.Tries - 1 >= heroClues.length){gameOver();}
             else{
-                clues.insertAdjacentHTML("beforeend", `<div><b style="font-size: 13pt; color: whitesmoke">Clue ${card.Tries}:</b> ${heroClues[card.Tries - 1]}</div>`);
+                clues.insertAdjacentHTML("beforeend", `<div><b style="font-size: 13pt; color: #fff9ed">Clue ${card.Tries}:</b> ${heroClues[card.Tries - 1]}</div>`);
                 lastGuessesList.push(inputGuess.value);
                 lastGuesses.insertAdjacentHTML("beforeend", `<p>${lastGuessesList[lastGuessesList.length - 1]}</p>`);}
 
@@ -252,7 +252,7 @@ function gameOver(){
 }
 
 // function to ban some cards, wink ;)
-function bruce(){
+function cardBanner(){
     switch (card.set) {
         case "HERO_SKINS":
         case "ENCHANTMENT":

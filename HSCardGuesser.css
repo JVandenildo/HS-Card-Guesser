@@ -11,7 +11,7 @@ body{
     color: lightgray;
 }
 h1, h2, h3, h4, h4, h5, h6, button{
-    font-family: bitter, bree-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bolder;
 }
 h1, h2, h3, h4, h4, h5, h6{
@@ -83,8 +83,8 @@ footer{
 }
 
 #cardSpitter{
-    background-color: darkgray;
-    border: 0.2rem solid darkgray;
+    background-color: #848563;
+    border: 0.2rem solid #848563;
     border-radius: 42%;
     font-size: 1.4rem;
     margin: 2rem;
@@ -94,8 +94,8 @@ footer{
     color: #68eae7;
 }
 #cardSpitter:active {
-    background-color: #787360;
-    border: 0.2rem solid #787360;
+    background-color: #5E5B4B;
+    border: 0.2rem solid #5E5B4B;
     border-radius: 42%;
     box-shadow: 0rem 0rem 0rem #5CD1CF;
     text-shadow: 0rem 0rem 0rem #5CD1CF;
@@ -105,13 +105,13 @@ footer{
 .lucky-guess{
     border-radius: 85px;
     border: 1vh solid #1e1e1e;
-    background: lightsalmon;
+    background: #fff9ed;
     margin: 0.6vh;
     padding: 0.6vh;
 }
 #inputGuess{
-    border: 5px solid lightsalmon;
-    background: lightsalmon;
+    border: 5px solid #fff9ed;
+    background: #fff9ed;
     min-width: 14rem;
 }
 #buttonGuess{
@@ -151,7 +151,7 @@ footer{
 }
 
 .lastGuesses{
-    background: lightsalmon;
+    background: #fff9ed;
     position: fixed;
     right: 0;
     bottom: 0;
