@@ -57,7 +57,10 @@ function cardSpit(){
 	let cardSpitted = new card("none", undefined);
 
 	console.log("Before", cardSpitted);
-	cardSpitted.displayCard();
+	cardSpitted.cardSpit;
+	cardSpitted.displayCard;
+	cardSpitted.modifier;
+	console.log("After", cardSpitted);
 
 	resetGame();
 }
@@ -91,5 +94,31 @@ function resetGame(){
 }
 
 // function to cover the game over. I know, name delivers
+/*function gameOver(){
+    switch (card.Tries) {
+        case 15:
+            finalStatement.innerHTML = 'Alright, alright...<br>I\'ll give another card. Wait a minute, would you?';
+            console.log(`You are insistent, aren't you...? The card was ${card.title}.`);
+            setTimeout(cardSpit(), 600000);
+            
+            break;
+    
+        default:
+            finalStatement.innerHTML = 'I\'m sorry, comrade!<br>Spit another card if you want to try again!';
+
+            break;
+    }
+}*/
 
 //function to ban some cards, wink ;)
+/*function cardBanner(){
+    switch (card.set) {
+        case "HERO_SKINS":
+        case "ENCHANTMENT":
+        case "HERO_POWER":
+            console.log("Banned card.");
+            cardSpit();
+
+            break;
+    }
+}*/
