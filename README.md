@@ -6,25 +6,11 @@ As the name suggests, this is a guessing game, the player must guess the card wi
 **REMEMBER THE ORIGINAL GAME "HEARTHSTONE" IS A PROPERTY OF BLIZZARD ENTERTAINMENT, ALL RIGHTS ARE RESERVED TO THEM. THE WORK DONE HERE IS FAN MADE!**  
 **PLEASE, VISIT [PLAYHEARTHSTONE.COM](https://hearthstone.blizzard.com/) TO LEARN ABOUT THE ORIGINAL GAME!**  
 
-## Summary  
-
-* [How to play it](https://github.com/JVandenildo/HS-Card-Guesser/tree/react#how-to-play-it)  
-* [About versions](https://github.com/JVandenildo/HS-Card-Guesser/tree/react#about-versions)  
-* [Special thanks](https://github.com/JVandenildo/HS-Card-Guesser/tree/react#special-thanks)  
-
 ## How to play it  
 
 As said previously, this is a guessing game, in order to get points the player needs to guess the name of a card right. But to guess a card, first is needed the card, to get it click on the button "**CARD SPITTER**". With your card generated (which you shouldn't know the name), you will receive a free clue – what type of card it is (minion, spell, etc.) followed by the artist(s) who drew the art – and you finally may name the card on the appropriate space. In case you are right, you are right. Game is over, you win!  
 But sometimes you are not right. Here comes another chance to get it right!  
 When you don't get the card's name right another clue will be given, but this time less points will be given at the end of the game. When all clues have been given, and the player guess the card wrongly, it's game over.  
-  
-## About versions  
-  
-![Badge version](https://img.shields.io/badge/VERSION-react-informational)
-
-Some others updates I am considering:  
-
-* Implement a filter to let players choose the set they want to guess from. For example, the player could set to only guess cards from Battlegrounds (amazing game mode, btw. Congrats Team 5 for that one).
 
 ## Special thanks  
 
