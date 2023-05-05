@@ -29,20 +29,22 @@ class card{
 	}
 
 	get modifier(){
+		let apiURL = "https://api.hearthstonejson.com/v1/95431/enUS/cards.collectible.json";
+		fetch(apiURL)
+		.then(response => response.json())
+		.then(jsonObj => displayCard(jsonObj))
+		.catch(() => alert('API could not be reached at this time. This means your luck won\'t be tested now. Sorry, kiddo.'));
+	
+		return this.id;
+	}
+
+	cardSpit(){
 		this.displayCard();
 		this.id = id;
 		this.cardClass = `belongs to ${cardClass.toLowerCase()}s.`;
 		if(cardClass === undefined){
 			this.cardClass = classes;
 		}
-	}
-
-	cardSpit(){
-		let apiURL = "https://api.hearthstonejson.com/v1/95431/enUS/cards.collectible.json";
-		fetch(apiURL)
-		.then(response => response.json())
-		.then(jsonObj => displayCard(jsonObj))
-		.catch(() => alert('API could not be reached at this time. This means your luck won\'t be tested now. Sorry, kiddo.'));
 	}
 
 	displayCard (cardAPI) {
