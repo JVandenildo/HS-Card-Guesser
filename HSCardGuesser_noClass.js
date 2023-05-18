@@ -1,6 +1,8 @@
 const clues = document.querySelector('.clues');
 const lastGuesses = document.querySelector('.lastGuesses');
 var lastGuessesList = [];
+const cardSpitter = document.querySelector('#cardSpitter');
+cardSpitter.addEventListener("click", cardSpit);
 
 var card = {
     title: "none",

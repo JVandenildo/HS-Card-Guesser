@@ -112,7 +112,7 @@ footer{
 #inputGuess{
     border: 5px solid #fff9ed;
     background: #fff9ed;
-    min-width: 14rem;
+    max-width: 14rem;
 }
 #buttonGuess{
     background: #f1f012;
