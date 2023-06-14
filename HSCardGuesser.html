@@ -1,96 +1,136 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt35850078059886e2/5ebda4ad274e0f5cdbaa593f/logo_small_hs.png">
-    <link rel="stylesheet" type="text/css" href="HSCardGuesser.css">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt35850078059886e2/5ebda4ad274e0f5cdbaa593f/logo_small_hs.png"
+    />
+    <link rel="stylesheet" type="text/css" href="HSCardGuesser.css" />
     <title>Hearthstone Card Guesser</title>
-</head>
-<body>
+  </head>
+
+  <body>
     <div class="master">
-        <!-- explanations about the game-->
-        <div class="rules">
-            <p style="font-size: medium;">The game Hearthstone is a property of Blizzard Entertainment, all rights are reserved to them. The work done here is fan made.<br>Please visit <a href="https://hearthstone.blizzard.com/">playhearthstone.com</a> to learn about the original game.</p>
-            <h2>Rules</h2>
-            The game rules must be clear and simple to all players.
-            <ol>
-                <li>Win the game who gather most of the points;</li>
-                <li>The amount of points on each card depends on how many clues the player received for a correct guess;</li>
-                <li>A correct guess must have all characters of the card's name correct (may have lower case);</li>
-                <li>After a game over, it's game over.</li>
-            </ol>
-            <p style="font-size: small;"><strong>Note:</strong> I don't know how to set a multiplayer match, yet. So take your own point notes and compare to your adversaries.</p>
-            <h2>Clues</h2>
-            The game begins with a "free clue" (it's free because the player doesn't lose points if guesses the card wrongly), this clue gives out which type of card the player is dealing with, followed by the artist(s) who drew the art.<br>
-            Card types and its clues are:
-            <ul>
-                <li>Minions.</li>
-                <ol>
-                    <li>Type (murloc, dragon, etc.);</li>
-                    <li>Rarity;</li>
-                    <li>Mana cost;</li>
-                    <li>Attack and health;</li>
-                    <li>Class;</li>
-                    <li>Card's text;</li>
-                    <li>Flavor text.</li>
-                </ol>
-                <li>Spells.</li>
-                <ol>
-                    <li>School of magic (fire, arcane, etc.);</li>
-                    <li>Rarity;</li>
-                    <li>Mana cost;</li>
-                    <li>Class;</li>
-                    <li>Card's text;</li>
-                    <li>Flavor text.</li>
-                </ol>
-                <li>Weapons.</li>
-                <ol>
-                    <li>Attack and durability;</li>
-                    <li>Rarity;</li>
-                    <li>Mana cost;</li>
-                    <li>Class;</li>
-                    <li>Flavor text.</li>
-                </ol>
-                <li>Heroes.</li>
-                <ol>
-                    <li>Armor and health (if has health);</li>
-                    <li>Rarity;</li>
-                    <li>Mana cost;</li>
-                    <li>Card's text;</li>
-                    <li>Flavor text;</li>
-                    <li>Class.</li>
-                </ol>
-            </ul>
+      <!-- explanations about the game-->
+      <div class="rules">
+        <p style="font-size: medium">
+          The game Hearthstone is a property of Blizzard Entertainment, all
+          rights are reserved to them. The work done here is fan made.<br />Please
+          visit
+          <a href="https://hearthstone.blizzard.com/">playhearthstone.com</a> to
+          learn about the original game.
+        </p>
+        <h2>Rules</h2>
+        The game rules must be clear and simple to all players.
+        <ol>
+          <li>Win the game who gather most of the points;</li>
+          <li>
+            The amount of points on each card depends on how many clues the
+            player received for a correct guess;
+          </li>
+          <li>
+            A correct guess must have all characters of the card's name correct
+            (may have lower case);
+          </li>
+          <li>After a game over, it's game over.</li>
+        </ol>
+        <p style="font-size: small">
+          <strong>Note:</strong> I don't know how to set a multiplayer match,
+          yet. So take your own point notes and compare to your adversaries.
+        </p>
+        <h2>Clues</h2>
+        The game begins with a "free clue" (it's free because the player doesn't
+        lose points if guesses the card wrongly), this clue gives out which type
+        of card the player is dealing with, followed by the artist(s) who drew
+        the art.<br />
+        Card types and its clues are:
+        <ul>
+          <li>Minions.</li>
+          <ol>
+            <li>Type (murloc, dragon, etc.);</li>
+            <li>Rarity;</li>
+            <li>Mana cost;</li>
+            <li>Attack and health;</li>
+            <li>Class;</li>
+            <li>Card's text;</li>
+            <li>Flavor text.</li>
+          </ol>
+          <li>Spells.</li>
+          <ol>
+            <li>School of magic (fire, arcane, etc.);</li>
+            <li>Rarity;</li>
+            <li>Mana cost;</li>
+            <li>Class;</li>
+            <li>Card's text;</li>
+            <li>Flavor text.</li>
+          </ol>
+          <li>Weapons.</li>
+          <ol>
+            <li>Attack and durability;</li>
+            <li>Rarity;</li>
+            <li>Mana cost;</li>
+            <li>Class;</li>
+            <li>Flavor text.</li>
+          </ol>
+          <li>Heroes.</li>
+          <ol>
+            <li>Armor and health (if has health);</li>
+            <li>Rarity;</li>
+            <li>Mana cost;</li>
+            <li>Card's text;</li>
+            <li>Flavor text;</li>
+            <li>Class.</li>
+          </ol>
+        </ul>
+      </div>
+
+      <div class="game-container">
+        <!-- section for game itself-->
+        <h2>Feeling lucky today?</h2>
+
+        <div class="spitCard">
+          <button id="cardSpitter">CARD SPITTER</button>
+        </div>
+        <div class="lucky-guess">
+          <!-- guess input-->
+          <input type="text" placeholder="Guess" id="inputGuess" /><button
+            id="buttonGuess"
+          >
+            JACKPOT!
+          </button>
         </div>
 
-        <div class="game-container"> <!-- section for game itself-->
-            <h2>Feeling lucky today?</h2>
-            
-            <div class="spitCard"><button id="cardSpitter">CARD SPITTER</button></div>
-            <div class="lucky-guess"> <!-- guess input-->
-                <input type="text" placeholder="Guess" id="inputGuess"><button id="buttonGuess">JACKPOT!</button>
-            </div>
+        <div class="clues"><!-- clues--></div>
 
-            <div class="clues"><!-- clues--></div>
-            
-            <div class="finalStatement"><!-- final saying, weather win or lose --></div>
+        <div class="finalStatement">
+          <!-- final saying, weather win or lose -->
         </div>
-
+      </div>
     </div>
 
     <div class="lastGuesses">
-        <h3>Last Guesses</h3>
+      <h3>Last Guesses</h3>
     </div>
 
     <!-- info of where to find me-->
     <footer>
-        <strong>Author:</strong> Jose Vandenildo<br>
-        <address>
-            <a href="mailto:jvandenildo@gmail.com"><img src="https://cdn-icons-png.flaticon.com/512/2164/2164967.png">jvandenildo@gmail.com</a>
-            <a href="https://github.com/JVandenildo"><img src="https://cdn.icon-icons.com/icons2/2429/PNG/512/github_logo_icon_147285.png">@JVandenildo</a>
-        </address>
+      <strong>Author:</strong> Jose Vandenildo<br />
+      <address>
+        <a href="mailto:jvandenildo@gmail.com"
+          ><img
+            src="https://cdn-icons-png.flaticon.com/512/2164/2164967.png"
+          />jvandenildo@gmail.com</a
+        >
+        <a href="https://github.com/JVandenildo"
+          ><img
+            src="https://cdn.icon-icons.com/icons2/2429/PNG/512/github_logo_icon_147285.png"
+          />@JVandenildo</a
+        >
+      </address>
     </footer>
-    <script type="text/javascript" src="HSCardGuesser_classy(unfinished).js"></script>
-</body>
+
+    <script type="text/javascript" src="HSCardGuesser_classy.js"></script>
+  </body>
 </html>
