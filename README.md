@@ -8,15 +8,9 @@ As the name suggests, this is a guessing game, the player must guess the card wi
 
 ## Summary
 
-1. [How to play it](#how-to-play-it)
-2. [Special thanks](#special-thanks)
-3. [To-do](#to-do)
-
-## How to play it
-
-As said previously, this is a guessing game, in order to get points the player needs to guess the name of a card right. But to guess a card, first is needed the card, to get it click on the button "**CARD SPITTER**". With your card generated (which you shouldn't know the name), you will receive a free clue – what type of card it is (minion, spell, etc.) followed by the artist(s) who drew the art – and you finally may name the card on the appropriate space. In case you are right, you are right. Game is over, you win!  
-But sometimes you are not right. Here comes another chance to get it right!  
-When you don't get the card's name right another clue will be given, but this time less points will be given at the end of the game. When all clues have been given, and the player guess the card wrongly, it's game over.
+[Hearthstone Card Guesser](#hearthstone-card-guesser)
+[Special thanks](#special-thanks)
+[To-do](#to-do)
 
 ## Special thanks
 
@@ -30,4 +24,5 @@ This project would not be possible without somebody's help (I'm a newbie program
 
 This section is just a reminder for later, don't bother if you don't want to.
 
-- Work on the player's input.
+- Work on the player's input;
+- Smooth the last guesses list.
