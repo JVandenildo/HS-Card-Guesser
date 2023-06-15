@@ -6,6 +6,12 @@ As the name suggests, this is a guessing game, the player must guess the card wi
 **REMEMBER THE ORIGINAL GAME "HEARTHSTONE" IS A PROPERTY OF BLIZZARD ENTERTAINMENT, ALL RIGHTS ARE RESERVED TO THEM. THE WORK DONE HERE IS FAN MADE!**  
 **PLEASE, VISIT [PLAYHEARTHSTONE.COM](https://hearthstone.blizzard.com/) TO LEARN ABOUT THE ORIGINAL GAME!**
 
+## Summary
+
+1. [How to play it](#how-to-play-it)
+2. [Special thanks](#special-thanks)
+3. [To-do](#to-do)
+
 ## How to play it
 
 As said previously, this is a guessing game, in order to get points the player needs to guess the name of a card right. But to guess a card, first is needed the card, to get it click on the button "**CARD SPITTER**". With your card generated (which you shouldn't know the name), you will receive a free clue – what type of card it is (minion, spell, etc.) followed by the artist(s) who drew the art – and you finally may name the card on the appropriate space. In case you are right, you are right. Game is over, you win!  
@@ -19,3 +25,9 @@ This project would not be possible without somebody's help (I'm a newbie program
 - [**HSReplay**](https://hsreplay.net/);
 - [**AstrOOnauta**](https://github.com/AstrOOnauta);
 - [**Taverna Hearthstone**](https://discord.gg/Rg7Sf6nG), a brazilian Discord Community dedicated to Hearthstone.
+
+## To-do
+
+This section is just a reminder for later, don't bother if you don't want to.
+
+- Work on the player's input.
