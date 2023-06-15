@@ -8,9 +8,9 @@ As the name suggests, this is a guessing game, the player must guess the card wi
 
 ## Summary
 
-[Hearthstone Card Guesser](#hearthstone-card-guesser)
-[Special thanks](#special-thanks)
-[To-do](#to-do)
+1. [Hearthstone Card Guesser](#hearthstone-card-guesser)
+2. [Special thanks](#special-thanks)
+3. [To-do](#to-do)
 
 ## Special thanks
 
@@ -26,3 +26,5 @@ This section is just a reminder for later, don't bother if you don't want to.
 
 - Work on the player's input;
 - Smooth the last guesses list.
+
+In case you think there's something in need to change, just tell me!
