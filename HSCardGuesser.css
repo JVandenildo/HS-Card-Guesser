@@ -1,15 +1,15 @@
 html,
 body {
-  min-height: 100%;
-  min-width: 100%;
+	min-height: 100%;
+	min-width: 100%;
 }
 
 body {
-  background-color: #252525;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0%;
-  font-size: 12pt;
-  color: lightgray;
+	background-color: #252525;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	margin: 0%;
+	font-size: 12pt;
+	color: lightgray;
 }
 
 h1,
@@ -20,9 +20,9 @@ h4,
 h5,
 h6,
 button {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-weight: bolder;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	font-weight: bolder;
 }
 h1,
 h2,
@@ -31,156 +31,157 @@ h4,
 h4,
 h5,
 h6 {
-  color: whitesmoke;
+	color: whitesmoke;
 }
 
 input,
 button,
 label {
-  padding: 1rem;
-  border-radius: 85px;
-  outline: none;
+	padding: 1rem;
+	border-radius: 85px;
+	outline: none;
 }
 
 a:link {
-  color: #46d7ff;
-  text-decoration: none;
+	color: #46d7ff;
+	text-decoration: none;
 }
 a:visited {
-  color: #959780;
-  text-decoration: none;
+	color: #959780;
+	text-decoration: none;
 }
 
 button:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .master {
-  top: 0;
-  right: 0;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  height: fit-content;
+	top: 0;
+	right: 0;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	height: fit-content;
 }
 
 footer {
-  background-color: #1e1e1e;
-  padding: 10px;
-  height: fit-content;
-  right: 0px;
-  text-align: center;
-  justify-content: center;
-  font-family: Arial, Helvetica;
+	background-color: #1e1e1e;
+	padding: 10px;
+	height: fit-content;
+	right: 0px;
+	text-align: center;
+	justify-content: center;
+	font-family: Arial, Helvetica;
 }
 footer img {
-  max-height: 12pt;
-  max-width: 12pt;
-  margin: auto 5px;
-  border-radius: 49%;
+	max-height: 12pt;
+	max-width: 12pt;
+	margin: auto 5px;
+	border-radius: 49%;
 }
 
 .rules {
-  max-width: 22rem;
-  height: fit-content;
-  padding: 5px 10px 75px;
-  background-color: #1e1e1e;
-  top: 0%;
-  right: 0%;
-  border: 0%;
+	max-width: 22rem;
+	height: fit-content;
+	padding: 5px 10px 75px;
+	background-color: #1e1e1e;
+	top: 0%;
+	right: 0%;
+	border: 0%;
 }
 
 .game-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  right: 0;
-  top: 0;
-  width: calc(100% - 22rem);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	right: 0;
+	top: 0;
+	width: calc(100% - 22rem);
 }
 .game-container img {
-  max-width: 17rem;
-  /* max-height: 22rem; */
+	max-width: 17rem;
+	/* max-height: 22rem; */
 }
 
 #cardSpitter {
-  background-color: #848563;
-  border: 0.2rem solid #848563;
-  border-radius: 42%;
-  font-size: 1.4rem;
-  margin: 2rem;
-  width: calc(17rem - 0.8rem);
-  box-shadow: 0rem 0rem 1rem #68eae7;
-  text-shadow: 0rem 0rem 0.1rem #68eae7;
-  color: #68eae7;
+	background-color: #848563;
+	border: 0.2rem solid #848563;
+	border-radius: 42%;
+	font-size: 1.4rem;
+	margin: 2rem;
+	width: calc(17rem - 0.8rem);
+	box-shadow: 0rem 0rem 1rem #68eae7;
+	text-shadow: 0rem 0rem 0.1rem #68eae7;
+	color: #68eae7;
 }
 #cardSpitter:active {
-  background-color: #5e5b4b;
-  border: 0.2rem solid #5e5b4b;
-  border-radius: 42%;
-  box-shadow: 0rem 0rem 0rem #5cd1cf;
-  text-shadow: 0rem 0rem 0rem #5cd1cf;
-  color: #5cd1cf;
+	background-color: #5e5b4b;
+	border: 0.2rem solid #5e5b4b;
+	border-radius: 42%;
+	box-shadow: 0rem 0rem 0rem #5cd1cf;
+	text-shadow: 0rem 0rem 0rem #5cd1cf;
+	color: #5cd1cf;
 }
 
 .lucky-guess {
-  border-radius: 85px;
-  border: 1vh solid #1e1e1e;
-  background: #fff9ed;
-  margin: 0.6vh;
-  padding: 0.6vh;
+	border-radius: 85px;
+	border: 1vh solid #1e1e1e;
+	background: #fff9ed;
+	margin: 0.6vh;
+	padding: 0.6vh;
 }
 #inputGuess {
-  border: 5px solid #fff9ed;
-  background: #fff9ed;
-  max-width: 14rem;
+	border: 5px solid #fff9ed;
+	background: #fff9ed;
+	max-width: 14rem;
 }
 #buttonGuess {
-  background: #f1f012;
-  border-right: 4px solid #737308;
-  border-bottom: 4px solid #737308;
-  border-left: 0px solid #f1f012;
-  border-top: 0px solid #f1f012;
-  box-shadow: 0px 0px 1.6vh #595c55;
-  margin: none;
+	background: #f1f012;
+	border-right: 4px solid #737308;
+	border-bottom: 4px solid #737308;
+	border-left: 0px solid #f1f012;
+	border-top: 0px solid #f1f012;
+	box-shadow: 0px 0px 1.6vh #595c55;
+	margin: none;
 }
 #buttonGuess:active {
-  border: 2px solid #f1f012;
-  border-right: 2px solid #f1f012;
-  border-bottom: 2px solid #f1f012;
-  border-left: 2px solid #f1f012;
-  border-top: 2px solid #f1f012;
-  box-shadow: 0px 0px 0vh #595c55;
-  margin: none;
+	border: 2px solid #f1f012;
+	border-right: 2px solid #f1f012;
+	border-bottom: 2px solid #f1f012;
+	border-left: 2px solid #f1f012;
+	border-top: 2px solid #f1f012;
+	box-shadow: 0px 0px 0vh #595c55;
+	margin: none;
 }
 
 .clues {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 0.5rem;
 }
 
 .finalStatement {
-  display: block;
-  margin: 3rem;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-weight: lighter;
-  font-style: oblique;
-  font-size: larger;
-  text-align: center;
+	display: block;
+	margin: 3rem;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	font-weight: lighter;
+	font-style: oblique;
+	font-size: larger;
+	text-align: center;
 }
 
 .lastGuesses {
-  background: #fff9ed;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  padding: 0.6vh 0.6vw;
-  margin: 0.6vh;
-  border: 0.3rem solid #1e1e1e;
-  -webkit-text-fill-color: #1e1e1e;
-  height: fit-content;
+	background: #fff9ed;
+	position: fixed;
+	z-index: -1;
+	right: 0;
+	bottom: 0;
+	padding: 0.75vh 0.75vw;
+	margin: 0.8vh;
+	border: 0.3rem solid #1e1e1e;
+	-webkit-text-fill-color: #1e1e1e;
+	height: fit-content;
 }
