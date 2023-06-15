@@ -36,7 +36,7 @@ function cardSpit() {
 		.then((jsonObj) => displayCard(jsonObj))
 		.catch(() =>
 			alert(
-				"API could not be reached at this time. This means your luck won't be tested now. Sorry, kiddo."
+				"API could not be reached at this time. This means your luck won't be tested now.\nSorry, kiddo."
 			)
 		);
 }
