@@ -21,15 +21,20 @@ class Card {
 		// what happens when trying to get this property value?
 		// returns something
 
-		this._Tries++;
+		this._Tries = this._Tries + 1;
+		if (this._Tries === 5) {
+			return this._Tries;
+		}
 
 		return this._Tries;
 	}
 
-	/* set _Tries(Tries) {
+	set Tries(Tries) {
 		// what happens when trying to set a property to this value?
 		// receives an argument
-	} */
+
+		this._Tries = Tries;
+	}
 
 	cardFetch() {
 		let apiURL =
@@ -63,10 +68,42 @@ class Card {
 	}
 }
 
+var SpittedCard;
+
 function cardSpit() {
-	const SpittedCard = new Card("none", undefined);
+	SpittedCard = new Card("none", undefined);
+	resetGame();
 
 	SpittedCard.cardFetch();
 
 	return SpittedCard;
+}
+
+// elements and function to verify user input
+const inputGuess = document.querySelector("#inputGuess");
+const buttonGuess = document.querySelector("#buttonGuess");
+const finalStatement = document.querySelector(".finalStatement");
+buttonGuess.addEventListener("click", luckTester);
+
+function luckTester() {
+	if (!inputGuess.value) {
+		alert("Don't need no rush, champion!\nGive your guess first.");
+	} else {
+		alert("Works!");
+	}
+	inputGuess.value = "";
+
+	return true;
+}
+
+function resetGame() {
+	inputGuess.value = "";
+	SpittedCard.Tries = 0;
+	// lastGuessesList.length = 0;
+	lastGuesses.innerHTML = "<h3>Last Guesses</h3>";
+	// clues.innerHTML = "";
+	// finalStatement.innerHTML = "";
+	// buttonGuess.addEventListener("click", luckTester);
+
+	return true;
 }
