@@ -72,12 +72,17 @@ footer {
 	text-align: center;
 	justify-content: center;
 	font-family: Arial, Helvetica;
+	display: flex;
 }
 footer img {
-	max-height: 12pt;
-	max-width: 12pt;
+	max-height: 13pt;
+	max-width: 13pt;
 	margin: auto 5px;
-	border-radius: 49%;
+	filter: grayscale(99%);
+}
+#aboutAuthor,
+#specialThanks {
+	margin: 0 1.5rem;
 }
 
 .rules {
@@ -176,7 +181,7 @@ footer img {
 .lastGuesses {
 	background: #fff9ed;
 	position: fixed;
-	z-index: -1;
+	z-index: 99;
 	right: 0;
 	bottom: 0;
 	padding: 0.75vh 0.75vw;
