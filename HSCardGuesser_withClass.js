@@ -3,7 +3,7 @@ click on generate card button, this button should:
 - fetch api;
 - modify all of card attributes?
     - create only 1 class to rule them all?
-    - or create 1 class for each type of card?
+    - or create 1 child class for each type of card?
 */
 
 const lastGuesses = document.querySelector(".lastGuesses");
@@ -17,13 +17,27 @@ class Card {
 		this._Tries = 0; // important to the game as a whole
 	}
 
+	get Tries() {
+		// what happens when trying to get this property value?
+		// returns something
+
+		this._Tries++;
+
+		return this._Tries;
+	}
+
+	/* set _Tries(Tries) {
+		// what happens when trying to set a property to this value?
+		// receives an argument
+	} */
+
 	cardFetch() {
 		let apiURL =
 			"https://api.hearthstonejson.com/v1/95431/enUS/cards.collectible.json";
 
 		fetch(apiURL)
 			.then((response) => response.json())
-			.then((jsonObj) => this.cardDestructed(jsonObj))
+			.then((jsonObj) => this._cardDestructed(jsonObj))
 			.catch(() =>
 				alert(
 					"API could not be reached at this time. This means your luck won't be tested now.\nSorry, kiddo."
@@ -31,13 +45,15 @@ class Card {
 			);
 	}
 
-	cardDestructed(jsonCard) {
+	_cardDestructed(jsonCard) {
 		let date = new Date();
 		let randomNumber = Math.floor(Math.random(date) * 3845);
 
-		let cardObj = jsonCard[randomNumber];
+		let { id, name, type } = jsonCard[randomNumber];
 
-		return cardObj;
+		lastGuesses.innerHTML = `
+		<b>Id:</b> ${id};<br>
+		<b>Name:</b> ${name}.`;
 	}
 
 	allInfo() {
@@ -48,7 +64,9 @@ class Card {
 }
 
 function cardSpit() {
-	const SpittedCard = new Card("Leroy", "EX_001");
+	const SpittedCard = new Card("none", undefined);
 
 	SpittedCard.cardFetch();
+
+	return SpittedCard;
 }
