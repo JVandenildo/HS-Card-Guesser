@@ -10,7 +10,6 @@ As the name suggests, this is a guessing game, the player must guess the card wi
 
 1. [Hearthstone Card Guesser](#hearthstone-card-guesser)
 2. [Special thanks](#special-thanks)
-3. [To-do](#to-do)
 
 ## Special thanks
 
@@ -19,12 +18,3 @@ This project would not be possible without somebody's help (I'm a newbie program
 - [**HSReplay**](https://hsreplay.net/);
 - [**AstrOOnauta**](https://github.com/AstrOOnauta);
 - [**Taverna Hearthstone**](https://discord.gg/Rg7Sf6nG), a brazilian Discord Community dedicated to Hearthstone.
-
-## To-do
-
-This section is just a reminder for later, don't bother if you don't want to.
-
-- Work on the player's input;
-- Smooth the last guesses list.
-
-In case you think there's something in need to change, just tell me!

@@ -1,11 +1,3 @@
-/* thoughts on the user process:
-click on generate card button, this button should:
-- fetch api;
-- modify all of card attributes?
-    - create only 1 class to rule them all?
-    - or create 1 child class for each type of card?
-*/
-
 const lastGuesses = document.querySelector(".lastGuesses");
 const cardSpitter = document.querySelector("#cardSpitter");
 cardSpitter.addEventListener("click", cardSpit);
@@ -55,66 +47,70 @@ class Card {
 	}
 
 	get Title() {
-		return this._type.toLowerCase();
+		return this._title.toLowerCase();
 	}
 	set Title(string) {
-		this._type = string;
+		this._title = string;
 	}
 
 	get Type() {
-		return this.type;
+		return this._type.toLowerCase();
 	}
 	set Type(string) {
 		this._type = string;
 	}
 
 	get Artist() {
-		return this._artist.toLowerCase();
+		return this._artist;
 	}
 	set Artist(string) {
 		this._artist = string;
 	}
 
 	get Attack() {
-		return this._attack.toLowerCase();
+		return this._attack;
 	}
 	set Attack(number) {
 		this._attack = number;
 	}
 
 	get Durability() {
-		return this._durability.toLowerCase();
+		return this._durability;
 	}
 	set Durability(number) {
 		this._durability = number;
 	}
 
 	get Armor() {
-		return this._armor.toLowerCase();
+		return this._armor;
 	}
 	set Armor(number) {
 		this._armor = number;
 	}
 
 	get Health() {
-		return this._health.toLowerCase();
+		return this._health;
 	}
 	set Health(number) {
 		this._health = number;
 	}
 
 	get Mechanics() {
-		return this._mechanics.toLowerCase();
+		return this._mechanics;
 	}
 	set Mechanics(string) {
 		this._mechanics = string;
 	}
 
 	get CardClass() {
-		return this._cardClass.toLowerCase();
+		if (this._cardClass === undefined) {
+			return this.Classes;
+		} else {
+			return `belongs to ${this._cardClass.toLowerCase()}s.`;
+		}
 	}
 	set CardClass(string) {
-		this._type = string;
+		this._cardClass = string;
 	}
 
 	get Classes() {
@@ -125,21 +121,46 @@ class Card {
 	}
 
 	get Rarity() {
-		return this._rarity.toLowerCase();
+		switch (this._rarity) {
+			case "FREE":
+				return ` a core set card.`;
+
+				break;
+			default:
+				return this._rarity.toLowerCase();
+		}
 	}
 	set Rarity(string) {
 		this._rarity = string;
 	}
 
 	get SpellSchool() {
-		return this._spellSchool.toLowerCase();
+		switch (this._spellSchool) {
+			case undefined:
+				return `this ${this.Type} belongs to no school of magic.`;
+
+				break;
+			default:
+				return `belongs to ${this._spellSchool.toLowerCase()} school of magic.`;
+
+				break;
+		}
 	}
 	set SpellSchool(string) {
 		this._spellSchool = string;
 	}
 
 	get Race() {
-		return this._race.toLowerCase();
+		switch (race) {
+			case undefined:
+				return `this ${this.Type} has no type.`;
+
+				break;
+			default:
+				return this._race.toLowerCase();
+
+				break;
+		}
 	}
 	set Race(string) {
 		this._race = string;
@@ -170,7 +191,7 @@ class Card {
 		return this._id.toLowerCase();
 	}
 	set Id(string) {
-		this._type = string;
+		this._id = string;
 	}
 
 	get Set() {
@@ -229,6 +250,19 @@ class Card {
 	freeClue() {
 		return `a ${this.Type}, art drew by ${this.Artist}.`;
 	}
+
+	// function to ban some cards, wink ;)
+	_cardBanner() {
+		switch (this.Set) {
+			case "HERO_SKINS":
+			case "ENCHANTMENT":
+			case "HERO_POWER":
+				console.log("Banned card.");
+				cardSpit();
+
+				break;
+		}
+	}
 }
 
 function cardSpit() {
@@ -236,6 +270,7 @@ function cardSpit() {
 
 	SpittedCard = new Card("none", undefined);
 	SpittedCard.cardFetch();
+	SpittedCard._cardBanner();
 
 	return SpittedCard;
 }
