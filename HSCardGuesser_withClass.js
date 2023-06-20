@@ -19,8 +19,12 @@ class Card {
 		// what happens when trying to get this property value?
 		// returns something
 
-		if (this._tries < 5) {
-			return this._tries + 1;
+		if (this._tries <= 5) {
+			finalStatement.innerHTML = `Tries: ${this._tries}`;
+
+			this._tries = this._tries + 1;
+
+			return this._tries;
 		} else {
 			return gameOver();
 		}
@@ -62,7 +66,11 @@ class Card {
 	}
 
 	get Artist() {
-		return this._artist;
+		if (this._artist === undefined) {
+			return `don't know who. Sorry!`;
+		} else {
+			return this._artist;
+		}
 	}
 	set Artist(string) {
 		this._artist = string;
@@ -388,21 +396,6 @@ function gameWon() {
 
 // function to cover the game over. I know, name delivers
 function gameOver() {
-	switch (SpittedCard.Tries) {
-		case 15:
-			finalStatement.innerHTML =
-				"Alright, alright...<br>I'll give another card. Wait a minute, would you?";
-			console.log(
-				`You are insistent, aren't you...? The card was ${SpittedCard.Tries}.`
-			);
-			setTimeout(cardSpit(), 600000);
-
-			break;
-
-		default:
-			finalStatement.innerHTML =
-				"I'm sorry, comrade!<br>Spit another card if you want to try again!";
-
-			break;
-	}
+	finalStatement.innerHTML =
+		"I'm sorry, comrade!<br>Spit another card if you want to try again.";
 }

@@ -342,7 +342,7 @@ function gameOver() {
 
 		default:
 			finalStatement.innerHTML =
-				"I'm sorry, comrade!<br>Spit another card if you want to try again!";
+				"I'm sorry, comrade!<br>Spit another card if you want to try again.";
 
 			break;
 	}
