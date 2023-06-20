@@ -19,10 +19,11 @@ class Card {
 		// what happens when trying to get this property value?
 		// returns something
 
-		this._tries = this._tries + 1;
-		console.log(this._tries);
-
-		return this._tries;
+		if (this._tries < 5) {
+			return this._tries + 1;
+		} else {
+			return gameOver();
+		}
 	}
 
 	set Tries(Tries) {
@@ -181,21 +182,21 @@ class Card {
 	}
 
 	get Cost() {
-		return this._cost.toLowerCase();
+		return this._cost;
 	}
 	set Cost(number) {
 		this._cost = number;
 	}
 
 	get Id() {
-		return this._id.toLowerCase();
+		return this._id;
 	}
 	set Id(string) {
 		this._id = string;
 	}
 
 	get Set() {
-		return this._set.toLowerCase();
+		return this._set;
 	}
 	set Set(string) {
 		this._set = string;
@@ -252,7 +253,7 @@ class Card {
 	}
 
 	// function to ban some cards, wink ;)
-	_cardBanner() {
+	cardBanner() {
 		switch (this.Set) {
 			case "HERO_SKINS":
 			case "ENCHANTMENT":
@@ -270,7 +271,7 @@ function cardSpit() {
 
 	SpittedCard = new Card("none", undefined);
 	SpittedCard.cardFetch();
-	SpittedCard._cardBanner();
+	SpittedCard.cardBanner();
 
 	return SpittedCard;
 }
@@ -285,7 +286,24 @@ function luckTester() {
 	if (!inputGuess.value) {
 		alert("Don't need no rush, champion!\nGive your guess first.");
 	} else {
-		SpittedCard.Tries;
+		switch (SpittedCard.Title) {
+			case "none":
+				clues.innerHTML =
+					"I'm a afraid you cannot guess a card that doesn't exist, pal!";
+
+				break;
+			case inputGuess.value.toLowerCase():
+				SpittedCard.Tries;
+				gameWon();
+
+				break;
+
+			default:
+				SpittedCard.Tries;
+				clueGenerator();
+
+				break;
+		}
 	}
 	inputGuess.value = "";
 
@@ -295,7 +313,7 @@ function luckTester() {
 function resetGame() {
 	let SpittedCard = new Card(undefined, undefined);
 	inputGuess.value = "";
-	// lastGuessesList.length = 0;
+	lastGuessesList.length = 0;
 	lastGuesses.innerHTML = "<h3>Last Guesses</h3>";
 	clues.innerHTML = "";
 	finalStatement.innerHTML = "";
@@ -314,4 +332,77 @@ function starGame() {
 	);
 
 	return true;
+}
+
+// function to determine which clue must be given
+function clueGenerator() {
+	switch (SpittedCard.Type) {
+		case "spell":
+			return (finalStatement.innerHTML = `Type spell: ${SpittedCard.Type}.`);
+
+			break;
+		case "minion":
+			return (finalStatement.innerHTML = `Type minion: ${SpittedCard.Type}.`);
+
+			break;
+		case "weapon":
+			return (finalStatement.innerHTML = `Type weapon: ${SpittedCard.Type}.`);
+
+			break;
+		case "hero":
+			return (finalStatement.innerHTML = `Type hero: ${SpittedCard.Type}.`);
+
+			break;
+		default:
+			clues.innerHTML = `This card exists? Try to spit another one.`;
+
+			break;
+	}
+}
+
+// function to deliver the points
+function gameWon() {
+	buttonGuess.removeEventListener("click", luckTester);
+	let initialPoints = 100;
+	let finalPoints;
+
+	switch (SpittedCard.Tries) {
+		case 1:
+			finalPoints = Math.round(initialPoints / 1);
+			finalStatement.innerHTML = `Congratulations, champion!<br>After ${card.Tries} guess, you've earned ${finalPoints} points.`;
+
+			break;
+		case 2:
+			finalPoints = Math.round(initialPoints / 1);
+			finalStatement.innerHTML = `Congratulations, champion!<br>After ${card.Tries} guesses, you've earned ${finalPoints} points.`;
+
+			break;
+
+		default:
+			finalPoints = Math.round(initialPoints / SpittedCard.Tries);
+			finalStatement.innerHTML = `Congratulations, champion!<br>After ${card.Tries} guesses, you've earned ${finalPoints} points.`;
+
+			break;
+	}
+}
+
+// function to cover the game over. I know, name delivers
+function gameOver() {
+	switch (SpittedCard.Tries) {
+		case 15:
+			finalStatement.innerHTML =
+				"Alright, alright...<br>I'll give another card. Wait a minute, would you?";
+			console.log(
+				`You are insistent, aren't you...? The card was ${SpittedCard.Tries}.`
+			);
+			setTimeout(cardSpit(), 600000);
+
+			break;
+
+		default:
+			finalStatement.innerHTML =
+				"I'm sorry, comrade!<br>Spit another card if you want to try again!";
+
+			break;
+	}
 }
