@@ -115,9 +115,9 @@ function displayCard(cardAPI) {
 	card.armor = armor;
 	cardBanner();
 
-	let freeClue = `<div><b style="font-size: 13pt; color: #fff9ed">Free clue:</b> a ${card.type}, art drew by ${card.artist}.</div>`;
+	let freeClue = `<div><b style="font-size: 12pt; color: #fff9ed">Free clue:</b> a ${card.type}, art drew by ${card.artist}.</div>`;
 	if (card.artist == undefined) {
-		freeClue = `<div><b style="font-size: 13pt; color: #fff9ed">Free clue:</b> a ${card.type}.</div>`;
+		freeClue = `<div><b style="font-size: 12pt; color: #fff9ed">Free clue:</b> a ${card.type}.</div>`;
 	}
 	// console.log(card.title);
 	console.log(card.id);
