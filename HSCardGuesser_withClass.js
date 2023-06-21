@@ -3,7 +3,6 @@ const cardSpitter = document.querySelector("#cardSpitter");
 cardSpitter.addEventListener("click", cardSpit);
 const clues = document.querySelector(".clues");
 var SpittedCard;
-var lastGuessesList = [];
 
 class Card {
 	constructor(title, id) {
@@ -13,28 +12,97 @@ class Card {
 		this._type;
 
 		this._tries = 0; // important to the game as a whole
+		this._lastGuessesList = []; // also very important to the game
 	}
 
 	get Tries() {
 		// what happens when trying to get this property value?
 		// returns something
 
-		if (this._tries <= 5) {
-			finalStatement.innerHTML = `Tries: ${this._tries}`;
+		if (this._tries < this.LastGuessesList.length) {
+			console.log(
+				`Tries: ${this._tries};\nLength: ${this.LastGuessesList.length}.`
+			);
 
-			this._tries = this._tries + 1;
-
-			return this._tries;
+			return this._tries + 1;
 		} else {
-			return gameOver();
+			finalStatement.innerHTML = `Sorry, kiddo! Game is over.<br>Try spit another card.`;
+
+			return true;
 		}
 	}
-
-	set Tries(Tries) {
+	set Tries(number) {
 		// what happens when trying to set a property to this value?
 		// receives an argument
 
-		this._tries = Tries;
+		this._tries = this._tries + number;
+	}
+
+	get LastGuessesList() {
+		switch (this.Type) {
+			case "spell":
+				const _spellClues = [
+					this.Flavor,
+					this.SpellSchool,
+					this.Rarity,
+					this.Cost,
+					this.CardClass,
+					this.Text,
+				];
+
+				this.LastGuessesList = _spellClues;
+
+				break;
+			case "minion":
+				const _minionClues = [
+					this.Flavor,
+					this.Race,
+					this.Rarity,
+					this.Cost,
+					`${this.Attack}/${this.Health}.`,
+					this.CardClass,
+					this.Text,
+				];
+
+				this.LastGuessesList = _minionClues;
+
+				break;
+			case "weapon":
+				const _weaponClues = [
+					this.Flavor,
+					`${this.Attack}/${this.Durability}.`,
+					this.Rarity,
+					this.Cost,
+					this.Cost,
+					this.CardClass,
+				];
+
+				this.LastGuessesList = _weaponClues;
+
+				break;
+			case "hero":
+				let ArmorHP = `${this.Armor} armor and ${this.Health} health.`;
+				if (this.Health === undefined) {
+					ArmorHP = `${this.Armor} armor.`;
+				}
+
+				const _heroClues = [
+					this.Flavor,
+					ArmorHP,
+					this.Rarity,
+					this.Cost,
+					this.Text,
+					this.CardClass,
+				];
+
+				this.LastGuessesList = _heroClues;
+
+				break;
+		}
+		return this._lastGuessesList;
+	}
+	set LastGuessesList(array) {
+		this._lastGuessesList = array;
 	}
 
 	cardFetch() {
@@ -67,7 +135,7 @@ class Card {
 
 	get Artist() {
 		if (this._artist === undefined) {
-			return `don't know who. Sorry!`;
+			return `don't know who.`;
 		} else {
 			return this._artist;
 		}
@@ -134,7 +202,6 @@ class Card {
 			case "FREE":
 				return ` a core set card.`;
 
-				break;
 			default:
 				return this._rarity.toLowerCase();
 		}
@@ -146,13 +213,10 @@ class Card {
 	get SpellSchool() {
 		switch (this._spellSchool) {
 			case undefined:
-				return `this ${this.Type} belongs to no school of magic.`;
+				return `this ${this.Type} belongs to no school of magic`;
 
-				break;
 			default:
-				return `belongs to ${this._spellSchool.toLowerCase()} school of magic.`;
-
-				break;
+				return `belongs to ${this._spellSchool.toLowerCase()} school of magic`;
 		}
 	}
 	set SpellSchool(string) {
@@ -160,15 +224,12 @@ class Card {
 	}
 
 	get Race() {
-		switch (race) {
+		switch (this._race) {
 			case undefined:
-				return `this ${this.Type} has no type.`;
+				return `this ${this.Type} has no type`;
 
-				break;
 			default:
 				return this._race.toLowerCase();
-
-				break;
 		}
 	}
 	set Race(string) {
@@ -176,7 +237,7 @@ class Card {
 	}
 
 	get Text() {
-		return this._text.toLowerCase();
+		return this._text;
 	}
 	set Text(string) {
 		this._text = string;
@@ -295,7 +356,8 @@ function luckTester() {
 		alert("Don't need no rush, champion!\nGive your guess first.");
 	} else {
 		switch (SpittedCard.Title) {
-			case "none":
+			// this first case should verify if the card was spitted
+			case false:
 				clues.innerHTML =
 					"I'm a afraid you cannot guess a card that doesn't exist, pal!";
 
@@ -321,11 +383,10 @@ function luckTester() {
 function resetGame() {
 	let SpittedCard = new Card(undefined, undefined);
 	inputGuess.value = "";
-	lastGuessesList.length = 0;
 	lastGuesses.innerHTML = "<h3>Last Guesses</h3>";
 	clues.innerHTML = "";
 	finalStatement.innerHTML = "";
-	buttonGuess.addEventListener("click", luckTester);
+	// buttonGuess.addEventListener("click", luckTester);
 
 	return true;
 }
@@ -346,56 +407,52 @@ function starGame() {
 function clueGenerator() {
 	switch (SpittedCard.Type) {
 		case "spell":
-			return (finalStatement.innerHTML = `Type spell: ${SpittedCard.Type}.`);
+			console.log(`Type: ${SpittedCard.Type}.`);
 
 			break;
 		case "minion":
-			return (finalStatement.innerHTML = `Type minion: ${SpittedCard.Type}.`);
+			console.log(`Type: ${SpittedCard.Type}.`);
 
 			break;
 		case "weapon":
-			return (finalStatement.innerHTML = `Type weapon: ${SpittedCard.Type}.`);
+			console.log(`Type: ${SpittedCard.Type}.`);
 
 			break;
 		case "hero":
-			return (finalStatement.innerHTML = `Type hero: ${SpittedCard.Type}.`);
+			console.log(`Type: ${SpittedCard.Type}.`);
 
 			break;
 		default:
-			clues.innerHTML = `This card exists? Try to spit another one.`;
+			clues.innerHTML = `This card exists?<br>Try to spit another one.`;
 
 			break;
 	}
+
+	return true;
 }
 
 // function to deliver the points
 function gameWon() {
-	buttonGuess.removeEventListener("click", luckTester);
+	// buttonGuess.removeEventListener("click", luckTester);
 	let initialPoints = 100;
 	let finalPoints;
 
-	switch (SpittedCard.Tries) {
+	switch (SpittedCard.Tries - 1) {
 		case 1:
 			finalPoints = Math.round(initialPoints / 1);
-			finalStatement.innerHTML = `Congratulations, champion!<br>After ${card.Tries} guess, you've earned ${finalPoints} points.`;
+			finalStatement.innerHTML = `Congratulations, champion!<br>After ${SpittedCard.Tries} guess, you've earned ${finalPoints} points.`;
 
 			break;
 		case 2:
 			finalPoints = Math.round(initialPoints / 1);
-			finalStatement.innerHTML = `Congratulations, champion!<br>After ${card.Tries} guesses, you've earned ${finalPoints} points.`;
+			finalStatement.innerHTML = `Congratulations, champion!<br>After ${SpittedCard.Tries} guesses, you've earned ${finalPoints} points.`;
 
 			break;
 
 		default:
-			finalPoints = Math.round(initialPoints / SpittedCard.Tries);
-			finalStatement.innerHTML = `Congratulations, champion!<br>After ${card.Tries} guesses, you've earned ${finalPoints} points.`;
+			finalPoints = Math.round(initialPoints / (SpittedCard.Tries - 2));
+			finalStatement.innerHTML = `Congratulations, champion!<br>After ${SpittedCard.Tries} guesses, you've earned ${finalPoints} points.`;
 
 			break;
 	}
-}
-
-// function to cover the game over. I know, name delivers
-function gameOver() {
-	finalStatement.innerHTML =
-		"I'm sorry, comrade!<br>Spit another card if you want to try again.";
 }
