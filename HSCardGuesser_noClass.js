@@ -282,7 +282,7 @@ function clueGenerator() {
 			break;
 
 		default:
-			clues.innerHTML = `This card exists? Try to spit another one.`;
+			clues.innerHTML = `This card exists?<br>Try to spit another one.`;
 
 			break;
 	}
