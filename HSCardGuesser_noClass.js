@@ -249,7 +249,7 @@ function clueGenerator() {
 			break;
 
 		case "hero":
-			var ArmorHP = `${card.armor} armor and ${card.health} health.`;
+			let ArmorHP = `${card.armor} armor and ${card.health} health.`;
 			if (card.health == undefined) {
 				ArmorHP = `${card.armor} armor.`;
 			}
