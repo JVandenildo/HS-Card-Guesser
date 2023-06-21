@@ -178,7 +178,7 @@ function clueGenerator() {
 			} else {
 				clues.insertAdjacentHTML(
 					"beforeend",
-					`<div><b style="font-size: 13pt;">Clue ${card.Tries}:</b> ${
+					`<div><b style="font-size: 12pt;">Clue ${card.Tries}:</b> ${
 						spellClues[card.Tries - 1]
 					}</div>`
 				);
@@ -207,7 +207,7 @@ function clueGenerator() {
 			} else {
 				clues.insertAdjacentHTML(
 					"beforeend",
-					`<div><b style="font-size: 13pt; color: #fff9ed">Clue ${
+					`<div><b style="font-size: 12pt; color: #fff9ed">Clue ${
 						card.Tries
 					}:</b> ${minionClues[card.Tries - 1]}</div>`
 				);
@@ -235,7 +235,7 @@ function clueGenerator() {
 			} else {
 				clues.insertAdjacentHTML(
 					"beforeend",
-					`<div><b style="font-size: 13pt; color: #fff9ed">Clue ${
+					`<div><b style="font-size: 12pt; color: #fff9ed">Clue ${
 						card.Tries
 					}:</b> ${weaponClues[card.Tries - 1]}</div>`
 				);
@@ -268,7 +268,7 @@ function clueGenerator() {
 			} else {
 				clues.insertAdjacentHTML(
 					"beforeend",
-					`<div><b style="font-size: 13pt; color: #fff9ed">Clue ${
+					`<div><b style="font-size: 12pt; color: #fff9ed">Clue ${
 						card.Tries
 					}:</b> ${heroClues[card.Tries - 1]}</div>`
 				);
