@@ -20,22 +20,24 @@ class Card {
 		// returns something
 
 		if (this._tries <= this.LastGuessesList.length) {
-			this.Tries = 1;
-
 			console.log(`Tries: ${this._tries}`);
 
 			return this._tries;
 		} else {
-			finalStatement.innerHTML = `Sorry, kiddo! Game is over.<br>Try spit another card.`;
+			gameOver();
 
-			return true;
+			return false;
 		}
 	}
 	set Tries(number) {
 		// what happens when trying to set a property to this value?
 		// receives an argument
 
-		this._tries = this._tries + number;
+		if (this._tries <= this.LastGuessesList.length) {
+			this._tries = this._tries + number;
+		} else {
+			gameOver();
+		}
 	}
 
 	get LastGuessesList() {
@@ -59,7 +61,7 @@ class Card {
 					this.Race,
 					this.Rarity,
 					this.Cost,
-					`${this.Attack}/${this.Health}.`,
+					`${this.Attack}/${this.Health}`,
 					this.CardClass,
 					this.Text,
 				];
@@ -70,7 +72,7 @@ class Card {
 			case "weapon":
 				const _weaponClues = [
 					this.Flavor,
-					`${this.Attack}/${this.Durability}.`,
+					`${this.Attack}/${this.Durability}`,
 					this.Rarity,
 					this.Cost,
 					this.Cost,
@@ -81,7 +83,7 @@ class Card {
 
 				break;
 			case "hero":
-				let ArmorHP = `${this.Armor} armor and ${this.Health} health.`;
+				let ArmorHP = `${this.Armor} armor and ${this.Health} health`;
 				if (this.Health === undefined) {
 					ArmorHP = `${this.Armor} armor.`;
 				}
@@ -183,7 +185,7 @@ class Card {
 		if (this._cardClass == undefined) {
 			return this.Classes;
 		} else {
-			return `belongs to ${this._cardClass.toLowerCase()}s.`;
+			return `belongs to ${this._cardClass.toLowerCase()}s`;
 		}
 	}
 	set CardClass(string) {
@@ -200,7 +202,7 @@ class Card {
 	get Rarity() {
 		switch (this._rarity) {
 			case "FREE":
-				return ` a core set card.`;
+				return ` a core set card`;
 
 			default:
 				return this._rarity.toLowerCase();
@@ -360,20 +362,19 @@ function luckTester() {
 		alert("Don't need no rush, champion!\nGive your guess first.");
 	} else {
 		switch (SpittedCard.Title) {
-			// this first case should verify if the card was spitted
-			case false:
+			case false: // this first case should verify if the card was spitted
 				clues.innerHTML =
 					"I'm a afraid you cannot guess a card that doesn't exist, pal!";
 
 				break;
-			case inputGuess.value.toLowerCase():
-				SpittedCard.Tries;
+			case inputGuess.value.toLowerCase(): // verify if it is the card's name
+				SpittedCard.Tries = 1;
 				gameWon();
 
 				break;
 
-			default:
-				SpittedCard.Tries;
+			default: // all other possibilities I didn't see coming
+				SpittedCard.Tries = 1;
 				clueGenerator();
 
 				break;
@@ -390,7 +391,7 @@ function resetGame() {
 	lastGuesses.innerHTML = "<h3>Last Guesses</h3>";
 	clues.innerHTML = "";
 	finalStatement.innerHTML = "";
-	// buttonGuess.addEventListener("click", luckTester);
+	buttonGuess.addEventListener("click", luckTester);
 
 	return true;
 }
@@ -411,19 +412,39 @@ function startGame() {
 function clueGenerator() {
 	switch (SpittedCard.Type) {
 		case "spell":
-			console.log(`Type: ${SpittedCard.Type}.`);
+			clues.insertAdjacentHTML(
+				"beforeend",
+				`<strong>Clue ${SpittedCard.Tries}:</strong> ${
+					SpittedCard.LastGuessesList[SpittedCard.Tries]
+				}.`
+			);
 
 			break;
 		case "minion":
-			console.log(`Type: ${SpittedCard.Type}.`);
+			clues.insertAdjacentHTML(
+				"beforeend",
+				`<strong>Clue ${SpittedCard.Tries}:</strong> ${
+					SpittedCard.LastGuessesList[SpittedCard.Tries]
+				}.`
+			);
 
 			break;
 		case "weapon":
-			console.log(`Type: ${SpittedCard.Type}.`);
+			clues.insertAdjacentHTML(
+				"beforeend",
+				`<strong>Clue ${SpittedCard.Tries}:</strong> ${
+					SpittedCard.LastGuessesList[SpittedCard.Tries]
+				}.`
+			);
 
 			break;
 		case "hero":
-			console.log(`Type: ${SpittedCard.Type}.`);
+			clues.insertAdjacentHTML(
+				"beforeend",
+				`<strong>Clue ${SpittedCard.Tries}:</strong> ${
+					SpittedCard.LastGuessesList[SpittedCard.Tries]
+				}.`
+			);
 
 			break;
 		default:
@@ -437,7 +458,7 @@ function clueGenerator() {
 
 // function to deliver the points
 function gameWon() {
-	// buttonGuess.removeEventListener("click", luckTester);
+	buttonGuess.removeEventListener("click", luckTester);
 	let initialPoints = 100;
 	let finalPoints;
 
@@ -459,4 +480,13 @@ function gameWon() {
 
 			break;
 	}
+}
+
+function gameOver() {
+	buttonGuess.removeEventListener("click", luckTester);
+
+	finalStatement.innerHTML =
+		"I'm sorry, comrade!<br>Spit another card if you want to try again.";
+
+	return true;
 }
