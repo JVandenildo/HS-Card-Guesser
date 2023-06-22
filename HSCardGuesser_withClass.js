@@ -13,13 +13,14 @@ class Card {
 
 		this._tries = 0; // important to the game as a whole
 		this._lastGuessesList = []; // also very important to the game
+		this._cluesList = []; // important to the game
 	}
 
 	get Tries() {
 		// what happens when trying to get this property value?
 		// returns something
 
-		if (this._tries <= this.LastGuessesList.length) {
+		if (this._tries <= this.CluesList.length) {
 			console.log(`Tries: ${this._tries}`);
 
 			return this._tries;
@@ -33,14 +34,14 @@ class Card {
 		// what happens when trying to set a property to this value?
 		// receives an argument
 
-		if (this._tries <= this.LastGuessesList.length) {
+		if (this._tries <= this.CluesList.length) {
 			this._tries = this._tries + number;
 		} else {
 			gameOver();
 		}
 	}
 
-	get LastGuessesList() {
+	get CluesList() {
 		switch (this.Type) {
 			case "spell":
 				const _spellClues = [
@@ -52,7 +53,7 @@ class Card {
 					this.Text,
 				];
 
-				this.LastGuessesList = _spellClues;
+				this.CluesList = _spellClues;
 
 				break;
 			case "minion":
@@ -66,7 +67,7 @@ class Card {
 					this.Text,
 				];
 
-				this.LastGuessesList = _minionClues;
+				this.CluesList = _minionClues;
 
 				break;
 			case "weapon":
@@ -79,7 +80,7 @@ class Card {
 					this.CardClass,
 				];
 
-				this.LastGuessesList = _weaponClues;
+				this.CluesList = _weaponClues;
 
 				break;
 			case "hero":
@@ -97,13 +98,13 @@ class Card {
 					this.CardClass,
 				];
 
-				this.LastGuessesList = _heroClues;
+				this.CluesList = _heroClues;
 
 				break;
 		}
-		return this._lastGuessesList;
+		return this._cluesList;
 	}
-	set LastGuessesList(array) {
+	set CluesList(array) {
 		this._lastGuessesList = array;
 	}
 
@@ -239,7 +240,7 @@ class Card {
 	}
 
 	get Text() {
-		return this._text;
+		return `'${this._text}'`;
 	}
 	set Text(string) {
 		this._text = string;
@@ -249,7 +250,7 @@ class Card {
 		if (this._flavor == undefined) {
 			return `no flavor`;
 		} else {
-			return this._flavor.toLowerCase();
+			return `'${this._flavor}'`;
 		}
 	}
 	set Flavor(string) {
@@ -257,7 +258,7 @@ class Card {
 	}
 
 	get Cost() {
-		return this._cost;
+		return `cost of ${this._cost}`;
 	}
 	set Cost(number) {
 		this._cost = number;
@@ -414,36 +415,36 @@ function clueGenerator() {
 		case "spell":
 			clues.insertAdjacentHTML(
 				"beforeend",
-				`<strong>Clue ${SpittedCard.Tries}:</strong> ${
-					SpittedCard.LastGuessesList[SpittedCard.Tries]
-				}.`
+				`<div><strong>Clue ${SpittedCard.Tries}:</strong> ${
+					SpittedCard.CluesList[SpittedCard.Tries - 1]
+				}.</div>`
 			);
 
 			break;
 		case "minion":
 			clues.insertAdjacentHTML(
 				"beforeend",
-				`<strong>Clue ${SpittedCard.Tries}:</strong> ${
-					SpittedCard.LastGuessesList[SpittedCard.Tries]
-				}.`
+				`<div><strong>Clue ${SpittedCard.Tries}:</strong> ${
+					SpittedCard.CluesList[SpittedCard.Tries - 1]
+				}.</div>`
 			);
 
 			break;
 		case "weapon":
 			clues.insertAdjacentHTML(
 				"beforeend",
-				`<strong>Clue ${SpittedCard.Tries}:</strong> ${
-					SpittedCard.LastGuessesList[SpittedCard.Tries]
-				}.`
+				`<div><strong>Clue ${SpittedCard.Tries}:</strong> ${
+					SpittedCard.CluesList[SpittedCard.Tries - 1]
+				}.</div>`
 			);
 
 			break;
 		case "hero":
 			clues.insertAdjacentHTML(
 				"beforeend",
-				`<strong>Clue ${SpittedCard.Tries}:</strong> ${
-					SpittedCard.LastGuessesList[SpittedCard.Tries]
-				}.`
+				`<div><strong>Clue ${SpittedCard.Tries}:</strong> ${
+					SpittedCard.ClueList[SpittedCard.Tries - 1]
+				}.</div>`
 			);
 
 			break;
