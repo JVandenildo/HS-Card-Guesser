@@ -3,6 +3,11 @@ const cardSpitter = document.querySelector("#cardSpitter");
 cardSpitter.addEventListener("click", cardSpit);
 const clues = document.querySelector(".clues");
 var SpittedCard;
+// elements and function to verify user input
+const inputGuess = document.querySelector("#inputGuess");
+const buttonGuess = document.querySelector("#buttonGuess");
+const finalStatement = document.querySelector(".finalStatement");
+buttonGuess.addEventListener("click", luckTester);
 
 class Card {
 	constructor(title, id) {
@@ -12,17 +17,15 @@ class Card {
 		this._type;
 
 		this._tries = 0; // important to the game as a whole
-		this._lastGuessesList = []; // also very important to the game
 		this._cluesList = []; // important to the game
 	}
 
 	get Tries() {
 		// what happens when trying to get this property value?
 		// returns something
+		console.log(`Tries: ${this._tries};\nMax tries: ${this.CluesList.length}.`);
 
 		if (this._tries <= this.CluesList.length) {
-			console.log(`Tries: ${this._tries}`);
-
 			return this._tries;
 		} else {
 			gameOver();
@@ -34,7 +37,7 @@ class Card {
 		// what happens when trying to set a property to this value?
 		// receives an argument
 
-		if (this._tries <= this.CluesList.length) {
+		if (this._tries < this.CluesList.length) {
 			this._tries = this._tries + number;
 		} else {
 			gameOver();
@@ -105,7 +108,7 @@ class Card {
 		return this._cluesList;
 	}
 	set CluesList(array) {
-		this._lastGuessesList = array;
+		this._cluesList = array;
 	}
 
 	cardFetch() {
@@ -352,12 +355,6 @@ function cardSpit() {
 	return SpittedCard;
 }
 
-// elements and function to verify user input
-const inputGuess = document.querySelector("#inputGuess");
-const buttonGuess = document.querySelector("#buttonGuess");
-const finalStatement = document.querySelector(".finalStatement");
-buttonGuess.addEventListener("click", luckTester);
-
 function luckTester() {
 	if (!inputGuess.value) {
 		alert("Don't need no rush, champion!\nGive your guess first.");
@@ -376,6 +373,7 @@ function luckTester() {
 
 			default: // all other possibilities I didn't see coming
 				SpittedCard.Tries = 1;
+				lastGuesses.insertAdjacentHTML("beforeend", `${inputGuess.value}<br>`);
 				clueGenerator();
 
 				break;
