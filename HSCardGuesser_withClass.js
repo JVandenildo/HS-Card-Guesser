@@ -261,7 +261,7 @@ class Card {
 	}
 
 	get Cost() {
-		return `cost of ${this._cost}`;
+		return `costs ${this._cost} mana`;
 	}
 	set Cost(number) {
 		this._cost = number;
@@ -413,7 +413,7 @@ function clueGenerator() {
 		case "spell":
 			clues.insertAdjacentHTML(
 				"beforeend",
-				`<div><strong>Clue ${SpittedCard.Tries}:</strong> ${
+				`<div><b>Clue ${SpittedCard.Tries}:</b> ${
 					SpittedCard.CluesList[SpittedCard.Tries - 1]
 				}.</div>`
 			);
@@ -422,7 +422,7 @@ function clueGenerator() {
 		case "minion":
 			clues.insertAdjacentHTML(
 				"beforeend",
-				`<div><strong>Clue ${SpittedCard.Tries}:</strong> ${
+				`<div><b>Clue ${SpittedCard.Tries}:</b> ${
 					SpittedCard.CluesList[SpittedCard.Tries - 1]
 				}.</div>`
 			);
@@ -431,7 +431,7 @@ function clueGenerator() {
 		case "weapon":
 			clues.insertAdjacentHTML(
 				"beforeend",
-				`<div><strong>Clue ${SpittedCard.Tries}:</strong> ${
+				`<div><b>Clue ${SpittedCard.Tries}:</b> ${
 					SpittedCard.CluesList[SpittedCard.Tries - 1]
 				}.</div>`
 			);
@@ -440,14 +440,14 @@ function clueGenerator() {
 		case "hero":
 			clues.insertAdjacentHTML(
 				"beforeend",
-				`<div><strong>Clue ${SpittedCard.Tries}:</strong> ${
+				`<div><b>Clue ${SpittedCard.Tries}:</b> ${
 					SpittedCard.ClueList[SpittedCard.Tries - 1]
 				}.</div>`
 			);
 
 			break;
 		default:
-			clues.innerHTML = `This card exists?<br>Try to spit another one.`;
+			clues.innerHTML = `<div >This card exists?<br>Try to spit another one.</div>`;
 
 			break;
 	}
