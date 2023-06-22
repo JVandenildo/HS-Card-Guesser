@@ -19,12 +19,12 @@ class Card {
 		// what happens when trying to get this property value?
 		// returns something
 
-		if (this._tries < this.LastGuessesList.length) {
-			console.log(
-				`Tries: ${this._tries};\nLength: ${this.LastGuessesList.length}.`
-			);
+		if (this._tries <= this.LastGuessesList.length) {
+			this.Tries = 1;
 
-			return this._tries + 1;
+			console.log(`Tries: ${this._tries}`);
+
+			return this._tries;
 		} else {
 			finalStatement.innerHTML = `Sorry, kiddo! Game is over.<br>Try spit another card.`;
 
@@ -135,7 +135,7 @@ class Card {
 
 	get Artist() {
 		if (this._artist === undefined) {
-			return `don't know who.`;
+			return `don't know who`;
 		} else {
 			return this._artist;
 		}
@@ -180,7 +180,7 @@ class Card {
 	}
 
 	get CardClass() {
-		if (this._cardClass === undefined) {
+		if (this._cardClass == undefined) {
 			return this.Classes;
 		} else {
 			return `belongs to ${this._cardClass.toLowerCase()}s.`;
@@ -244,7 +244,11 @@ class Card {
 	}
 
 	get Flavor() {
-		return this._flavor.toLowerCase();
+		if (this._flavor == undefined) {
+			return `no flavor`;
+		} else {
+			return this._flavor.toLowerCase();
+		}
 	}
 	set Flavor(string) {
 		this._flavor = string;
@@ -314,11 +318,11 @@ class Card {
 		this.Id = id;
 		this.Set = set;
 
-		return starGame();
+		return startGame();
 	}
 
 	freeClue() {
-		return `a ${this.Type}, art drew by ${this.Artist}.`;
+		return `a ${this.Type}, art drew by ${this.Artist}!`;
 	}
 
 	// function to ban some cards, wink ;)
@@ -391,12 +395,12 @@ function resetGame() {
 	return true;
 }
 
-function starGame() {
+function startGame() {
 	clues.insertAdjacentHTML(
 		"beforeend",
 		`<h2>Clues</h2>
 		<div>
-			<b style="font-size: 12pt; color: #fff9ed">Free clue</b>: a ${SpittedCard.Type} drew by ${SpittedCard.Artist}.
+			<b style="font-size: 12pt; color: #fff9ed">Free clue</b>: ${SpittedCard.freeClue()}
 		</div>`
 	);
 
