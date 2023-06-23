@@ -23,9 +23,10 @@ class Card {
 	get Tries() {
 		// what happens when trying to get this property value?
 		// returns something
-		console.log(`Tries: ${this._tries};\nMax tries: ${this.CluesList.length}.`);
 
-		if (this._tries <= this.CluesList.length) {
+		if (this._tries <= this.CluesList.length + 1) {
+			console.log(this._tries, this.CluesList.length);
+
 			return this._tries;
 		} else {
 			gameOver();
@@ -37,7 +38,7 @@ class Card {
 		// what happens when trying to set a property to this value?
 		// receives an argument
 
-		if (this._tries < this.CluesList.length) {
+		if (this._tries <= this.CluesList.length + 1) {
 			this._tries = this._tries + number;
 		} else {
 			gameOver();
@@ -361,19 +362,25 @@ function luckTester() {
 	if (!inputGuess.value) {
 		alert("Don't need no rush, champion!\nGive your guess first.");
 	} else {
+		SpittedCard.Tries = 1;
 		switch (SpittedCard.Title) {
 			// should be a function to verify if the card was spitted
 
 			case inputGuess.value.toLowerCase(): // verify if it is the card's name
-				SpittedCard.Tries = 1;
 				gameWon();
 
 				break;
 
 			default: // all other possibilities I didn't see coming
-				SpittedCard.Tries = 1;
-				lastGuesses.insertAdjacentHTML("beforeend", `${inputGuess.value}<br>`);
-				clueGenerator();
+				if (SpittedCard.Tries == SpittedCard.CluesList.length) {
+					gameOver();
+				} else {
+					clueGenerator();
+					lastGuesses.insertAdjacentHTML(
+						"beforeend",
+						`<b>${SpittedCard.Tries}:</b> ${inputGuess.value}<br>`
+					);
+				}
 
 				break;
 		}
@@ -434,7 +441,7 @@ function clueGenerator() {
 // function to deliver the points
 function gameWon() {
 	buttonGuess.removeEventListener("click", luckTester);
-	let initialPoints = 100;
+	const initialPoints = 100;
 	let finalPoints;
 
 	switch (SpittedCard.Tries) {
@@ -445,17 +452,14 @@ function gameWon() {
 			break;
 		case 2:
 			finalPoints = Math.round(initialPoints / 1);
-			finalStatement.innerHTML = `Congratulations, champion!<br>After ${
-				SpittedCard.Tries - 1
-			} guess, you've earned ${finalPoints} points.`;
+			finalStatement.innerHTML = `Congratulations, champion!<br>After ${SpittedCard.Tries} guesses, you've earned ${finalPoints} points.`;
 
 			break;
 
 		default:
 			finalPoints = Math.round(initialPoints / (SpittedCard.Tries - 1));
-			finalStatement.innerHTML = `Congratulations, champion!<br>After ${
-				SpittedCard.Tries - 1
-			} guesses, you've earned ${finalPoints} points.`;
+			finalStatement.innerHTML = `Congratulations, champion!<br>
+			After ${SpittedCard.Tries} guesses, you've earned ${finalPoints} points.`;
 
 			break;
 	}
