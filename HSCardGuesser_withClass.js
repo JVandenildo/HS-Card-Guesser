@@ -209,7 +209,7 @@ class Card {
 				return ` a core set card`;
 
 			default:
-				return this._rarity.toLowerCase();
+				return `${this._rarity.toLowerCase()} card`;
 		}
 	}
 	set Rarity(string) {
@@ -328,6 +328,8 @@ class Card {
 	}
 
 	freeClue() {
+		console.log(SpittedCard.Title);
+
 		return `a ${this.Type}, art drew by ${this.Artist}!`;
 	}
 
@@ -360,11 +362,8 @@ function luckTester() {
 		alert("Don't need no rush, champion!\nGive your guess first.");
 	} else {
 		switch (SpittedCard.Title) {
-			case false: // this first case should verify if the card was spitted
-				clues.innerHTML =
-					"I'm a afraid you cannot guess a card that doesn't exist, pal!";
+			// should be a function to verify if the card was spitted
 
-				break;
 			case inputGuess.value.toLowerCase(): // verify if it is the card's name
 				SpittedCard.Tries = 1;
 				gameWon();
@@ -380,29 +379,6 @@ function luckTester() {
 		}
 	}
 	inputGuess.value = "";
-
-	return true;
-}
-
-function resetGame() {
-	let SpittedCard = new Card(undefined, undefined);
-	inputGuess.value = "";
-	lastGuesses.innerHTML = "<h3>Last Guesses</h3>";
-	clues.innerHTML = "";
-	finalStatement.innerHTML = "";
-	buttonGuess.addEventListener("click", luckTester);
-
-	return true;
-}
-
-function startGame() {
-	clues.insertAdjacentHTML(
-		"beforeend",
-		`<h2>Clues</h2>
-		<div>
-			<b style="font-size: 12pt; color: #fff9ed">Free clue</b>: ${SpittedCard.freeClue()}
-		</div>`
-	);
 
 	return true;
 }
@@ -447,7 +423,7 @@ function clueGenerator() {
 
 			break;
 		default:
-			clues.innerHTML = `<div >This card exists?<br>Try to spit another one.</div>`;
+			clues.innerHTML = `<div>This card exists?<br>Try to spit another one.</div>`;
 
 			break;
 	}
@@ -461,7 +437,7 @@ function gameWon() {
 	let initialPoints = 100;
 	let finalPoints;
 
-	switch (SpittedCard.Tries - 1) {
+	switch (SpittedCard.Tries) {
 		case 1:
 			finalPoints = Math.round(initialPoints / 1);
 			finalStatement.innerHTML = `Congratulations, champion!<br>After ${SpittedCard.Tries} guess, you've earned ${finalPoints} points.`;
@@ -469,13 +445,17 @@ function gameWon() {
 			break;
 		case 2:
 			finalPoints = Math.round(initialPoints / 1);
-			finalStatement.innerHTML = `Congratulations, champion!<br>After ${SpittedCard.Tries} guesses, you've earned ${finalPoints} points.`;
+			finalStatement.innerHTML = `Congratulations, champion!<br>After ${
+				SpittedCard.Tries - 1
+			} guess, you've earned ${finalPoints} points.`;
 
 			break;
 
 		default:
-			finalPoints = Math.round(initialPoints / (SpittedCard.Tries - 2));
-			finalStatement.innerHTML = `Congratulations, champion!<br>After ${SpittedCard.Tries} guesses, you've earned ${finalPoints} points.`;
+			finalPoints = Math.round(initialPoints / (SpittedCard.Tries - 1));
+			finalStatement.innerHTML = `Congratulations, champion!<br>After ${
+				SpittedCard.Tries - 1
+			} guesses, you've earned ${finalPoints} points.`;
 
 			break;
 	}
@@ -486,6 +466,28 @@ function gameOver() {
 
 	finalStatement.innerHTML =
 		"I'm sorry, comrade!<br>Spit another card if you want to try again.";
+
+	return true;
+}
+function resetGame() {
+	let SpittedCard = new Card(undefined, undefined);
+	inputGuess.value = "";
+	lastGuesses.innerHTML = "<h3>Last Guesses</h3>";
+	clues.innerHTML = "";
+	finalStatement.innerHTML = "";
+	buttonGuess.addEventListener("click", luckTester);
+
+	return true;
+}
+
+function startGame() {
+	clues.insertAdjacentHTML(
+		"beforeend",
+		`<h2>Clues</h2>
+		<div>
+			<b style="font-size: 12pt; color: #fff9ed">Free clue</b>: ${SpittedCard.freeClue()}
+		</div>`
+	);
 
 	return true;
 }
