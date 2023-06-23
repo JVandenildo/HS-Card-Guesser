@@ -329,7 +329,7 @@ class Card {
 	}
 
 	freeClue() {
-		console.log(SpittedCard.Title);
+		//console.log(this.Title); // for testing purpose
 
 		return `a ${this.Type}, art drew by ${this.Artist}!`;
 	}
@@ -372,7 +372,7 @@ function luckTester() {
 				break;
 
 			default: // all other possibilities I didn't see coming
-				if (SpittedCard.Tries == SpittedCard.CluesList.length) {
+				if (SpittedCard.Tries == SpittedCard.CluesList.length + 1) {
 					gameOver();
 				} else {
 					clueGenerator();
