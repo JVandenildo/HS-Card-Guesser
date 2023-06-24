@@ -18,6 +18,17 @@ class Card {
 
 		this._tries = 0; // important to the game as a whole
 		this._cluesList = []; // important to the game
+		this._artAPI =
+			"https://art.hearthstonejson.com/v1/render/latest/enUS/512x/"; // display the card's art
+	}
+
+	get ArtCard() {
+		this.ArtCard = this._id;
+
+		return this._artAPI;
+	}
+	set ArtCard(string) {
+		this._artAPI = `${this._artAPI}${string}.png`;
 	}
 
 	get Tries() {
@@ -25,8 +36,6 @@ class Card {
 		// returns something
 
 		if (this._tries <= this.CluesList.length + 1) {
-			console.log(this._tries, this.CluesList.length);
-
 			return this._tries;
 		} else {
 			gameOver();
@@ -329,8 +338,6 @@ class Card {
 	}
 
 	freeClue() {
-		//console.log(this.Title); // for testing purpose
-
 		return `a ${this.Type}, art drew by ${this.Artist}!`;
 	}
 
@@ -345,6 +352,15 @@ class Card {
 
 				break;
 		}
+
+		return true;
+	}
+
+	getInfo() {
+		console.log(`Tries: ${this.Tries};\nMax tries: ${this.CluesList.length}.`);
+		// console.log(`Title: ${this.Title}.`); // testing purpose
+
+		return true;
 	}
 }
 
@@ -363,6 +379,8 @@ function luckTester() {
 		alert("Don't need no rush, champion!\nGive your guess first.");
 	} else {
 		SpittedCard.Tries = 1;
+		SpittedCard.getInfo();
+
 		switch (SpittedCard.Title) {
 			// should be a function to verify if the card was spitted
 
@@ -441,6 +459,7 @@ function clueGenerator() {
 // function to deliver the points
 function gameWon() {
 	buttonGuess.removeEventListener("click", luckTester);
+	artContainer.innerHTML = `<img src="${SpittedCard.ArtCard}"/>`;
 	const initialPoints = 100;
 	let finalPoints;
 
@@ -467,6 +486,7 @@ function gameWon() {
 
 function gameOver() {
 	buttonGuess.removeEventListener("click", luckTester);
+	artContainer.innerHTML = `<img src="${SpittedCard.ArtCard}"/>`;
 
 	finalStatement.innerHTML =
 		"I'm sorry, comrade!<br>Spit another card if you want to try again.";
@@ -484,6 +504,7 @@ function resetGame() {
 	return true;
 }
 
+const artContainer = document.querySelector("#artContainer");
 function startGame() {
 	clues.insertAdjacentHTML(
 		"beforeend",
