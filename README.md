@@ -10,8 +10,8 @@ So far there are a few versions of this project, I'm updating it as my programmi
 
 1. Programming/JavaScript newbie;
 2. JavaScript classes;
-3. React;
-4. TypeScript.
+3. TypeScript;
+4. React.
 
 ## Summary
 
