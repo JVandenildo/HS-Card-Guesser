@@ -1,13 +1,15 @@
 {
-	"myGithub": "https://github.com/JVandenildo",
-
-	"HSReplay": "https://hsreplay.net/",
 	"HSapi": "https://api.hearthstonejson.com/v1/95431/enUS/cards.collectible.json",
+	"ArtURL": "https://art.hearthstonejson.com/v1/render/latest/enUS/512x/",
+	"HearthstoneIcon": "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt35850078059886e2/5ebda4ad274e0f5cdbaa593f/logo_small_hs.png",
+
+	"myGithub": "https://github.com/JVandenildo",
+	"GitHubIcon": "https://cdn.icon-icons.com/icons2/3261/PNG/512/github_logo_icon_206752.png",
+	"HSReplay": "https://hsreplay.net/",
+	"HSReplayIcon": "https://static.hsreplay.net/static/images/logo.58ae9cde1d07.png",
 	"thanksGithub": "https://github.com/AstrOOnauta",
 	"thanksCommunity": "https://discord.com/invite/Rg7Sf6nG",
-
-	"HSReplayIcon": "https://static.hsreplay.net/static/images/logo.58ae9cde1d07.png",
-	"GitHubIcon": "https://cdn.icon-icons.com/icons2/3261/PNG/512/github_logo_icon_206752.png",
-	"EmailIcon": "https://cdn.icon-icons.com/icons2/908/PNG/512/opened-email-envelope_icon-icons.com_70656.png",
-	"DiscordIcon": "https://cdn.icon-icons.com/icons2/3206/PNG/512/discord_icon_195948.png"
+	"DiscordIcon": "https://cdn.icon-icons.com/icons2/3206/PNG/512/discord_icon_195948.png",
+	"myEmail": "JVandenildo@gmail.com",
+	"EmailIcon": "https://cdn.icon-icons.com/icons2/908/PNG/512/opened-email-envelope_icon-icons.com_70656.png"
 }

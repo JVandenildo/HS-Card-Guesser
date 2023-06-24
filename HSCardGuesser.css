@@ -95,7 +95,7 @@ footer img {
 	border: 0%;
 }
 
-.game-container {
+.gameContainer {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -104,9 +104,9 @@ footer img {
 	top: 0;
 	width: calc(100% - 22rem);
 }
-.game-container img {
-	max-width: 17rem;
-	/* max-height: 22rem; */
+.gameContainer img {
+	max-width: 512px;
+	max-height: 512px;
 }
 
 #cardSpitter {

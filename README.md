@@ -6,6 +6,13 @@ As the name suggests, this is a guessing game, the player must guess the card wi
 **REMEMBER THE ORIGINAL GAME "HEARTHSTONE" IS A PROPERTY OF BLIZZARD ENTERTAINMENT, ALL RIGHTS ARE RESERVED TO THEM. THE WORK DONE HERE IS FAN MADE!**  
 **PLEASE, VISIT [PLAYHEARTHSTONE.COM](https://hearthstone.blizzard.com/) TO LEARN ABOUT THE ORIGINAL GAME!**
 
+So far there are a few versions of this project, I'm updating it as my programming studies progresses. The previous versions may be outdated as the other versions appears. Below is a guideline to what are the versions.
+
+1. Programming/JavaScript newbie;
+2. JavaScript classes;
+3. React;
+4. TypeScript.
+
 ## Summary
 
 1. [Hearthstone Card Guesser](#hearthstone-card-guesser)
