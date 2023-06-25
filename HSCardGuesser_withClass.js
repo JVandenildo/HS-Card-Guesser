@@ -359,7 +359,7 @@ class Card {
 
 	getInfo() {
 		console.log(`Tries: ${this.Tries};\nMax tries: ${this.CluesList.length}.`);
-		console.log(`Title: ${this.Title}.`); // testing purpose
+		// console.log(`Title: ${this.Title}.`); // testing purpose
 
 		return true;
 	}
