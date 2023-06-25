@@ -2,6 +2,7 @@ const lastGuesses = document.querySelector(".lastGuesses");
 const cardSpitter = document.querySelector("#cardSpitter");
 cardSpitter.addEventListener("click", cardSpit);
 const clues = document.querySelector(".clues");
+const artContainer = document.querySelector("#artContainer");
 var SpittedCard;
 // elements and function to verify user input
 const inputGuess = document.querySelector("#inputGuess");
@@ -143,10 +144,10 @@ class Card {
 	}
 
 	get Type() {
-		return this._type.toLowerCase();
+		return this._type;
 	}
 	set Type(string) {
-		this._type = string;
+		this._type = string.toLowerCase();
 	}
 
 	get Artist() {
@@ -358,20 +359,36 @@ class Card {
 
 	getInfo() {
 		console.log(`Tries: ${this.Tries};\nMax tries: ${this.CluesList.length}.`);
-		// console.log(`Title: ${this.Title}.`); // testing purpose
+		console.log(`Title: ${this.Title}.`); // testing purpose
 
 		return true;
 	}
 }
 
 function cardSpit() {
-	resetGame();
-
 	SpittedCard = new Card("none", undefined);
 	SpittedCard.cardFetch();
 	SpittedCard.cardBanner();
 
 	return SpittedCard;
+}
+
+function startGame() {
+	inputGuess.value = "";
+	lastGuesses.innerHTML = "<h3>Last Guesses</h3>";
+	clues.innerHTML = "";
+	finalStatement.innerHTML = "";
+	buttonGuess.addEventListener("click", luckTester);
+
+	clues.insertAdjacentHTML(
+		"beforeend",
+		`<h2>Clues</h2>
+		<div>
+			<b class="clueHeader">Free clue</b>: ${SpittedCard.freeClue()}
+		</div>`
+	);
+
+	return true;
 }
 
 function luckTester() {
@@ -414,7 +431,7 @@ function clueGenerator() {
 		case "spell":
 			clues.insertAdjacentHTML(
 				"beforeend",
-				`<div><b>Clue ${SpittedCard.Tries}:</b> ${
+				`<div><b class="clueHeader">Clue ${SpittedCard.Tries}:</b> ${
 					SpittedCard.CluesList[SpittedCard.Tries - 1]
 				}.</div>`
 			);
@@ -423,7 +440,7 @@ function clueGenerator() {
 		case "minion":
 			clues.insertAdjacentHTML(
 				"beforeend",
-				`<div><b>Clue ${SpittedCard.Tries}:</b> ${
+				`<div><b class="clueHeader">Clue ${SpittedCard.Tries}:</b> ${
 					SpittedCard.CluesList[SpittedCard.Tries - 1]
 				}.</div>`
 			);
@@ -432,7 +449,7 @@ function clueGenerator() {
 		case "weapon":
 			clues.insertAdjacentHTML(
 				"beforeend",
-				`<div><b>Clue ${SpittedCard.Tries}:</b> ${
+				`<div><b class="clueHeader">Clue ${SpittedCard.Tries}:</b> ${
 					SpittedCard.CluesList[SpittedCard.Tries - 1]
 				}.</div>`
 			);
@@ -441,7 +458,7 @@ function clueGenerator() {
 		case "hero":
 			clues.insertAdjacentHTML(
 				"beforeend",
-				`<div><b>Clue ${SpittedCard.Tries}:</b> ${
+				`<div><b class="clueHeader">Clue ${SpittedCard.Tries}:</b> ${
 					SpittedCard.ClueList[SpittedCard.Tries - 1]
 				}.</div>`
 			);
@@ -460,6 +477,7 @@ function clueGenerator() {
 function gameWon() {
 	buttonGuess.removeEventListener("click", luckTester);
 	artContainer.innerHTML = `<img src="${SpittedCard.ArtCard}"/>`;
+
 	const initialPoints = 100;
 	let finalPoints;
 
@@ -490,29 +508,6 @@ function gameOver() {
 
 	finalStatement.innerHTML =
 		"I'm sorry, comrade!<br>Spit another card if you want to try again.";
-
-	return true;
-}
-function resetGame() {
-	let SpittedCard = new Card(undefined, undefined);
-	inputGuess.value = "";
-	lastGuesses.innerHTML = "<h3>Last Guesses</h3>";
-	clues.innerHTML = "";
-	finalStatement.innerHTML = "";
-	buttonGuess.addEventListener("click", luckTester);
-
-	return true;
-}
-
-const artContainer = document.querySelector("#artContainer");
-function startGame() {
-	clues.insertAdjacentHTML(
-		"beforeend",
-		`<h2>Clues</h2>
-		<div>
-			<b style="font-size: 12pt; color: #fff9ed">Free clue</b>: ${SpittedCard.freeClue()}
-		</div>`
-	);
 
 	return true;
 }

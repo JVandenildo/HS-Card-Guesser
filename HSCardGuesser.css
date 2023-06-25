@@ -168,6 +168,10 @@ footer img {
 	justify-content: flex-start;
 	padding: 0.5rem;
 }
+.clueHeader {
+	font-size: 12pt;
+	color: #fff9ed;
+}
 
 .finalStatement {
 	display: block;
