@@ -392,15 +392,15 @@ function startGame() {
 }
 
 function luckTester() {
-	if (!inputGuess.value) {
-		alert("Don't need no rush, champion!\nGive your guess first.");
+	if (!inputGuess.value || !SpittedCard) {
+		alert(
+			"Don't need no rush, champion!\nSpit a card and give your guess first."
+		);
 	} else {
 		SpittedCard.Tries = 1;
 		SpittedCard.getInfo();
 
 		switch (SpittedCard.Title) {
-			// should be a function to verify if the card was spitted
-
 			case inputGuess.value.toLowerCase(): // verify if it is the card's name
 				gameWon();
 
