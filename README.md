@@ -9,8 +9,8 @@ As the name suggests, this is a guessing game, the player must guess the card wi
 ## Summary
 
 1. [Hearthstone Card Guesser](#hearthstone-card-guesser);
-2. [Special thanks](#special-thanks);
-3. [About this project](#about-this-project).
+2. [About this project](#about-this-project);
+3. [Special thanks](#special-thanks).
 
 ## About this project
 
