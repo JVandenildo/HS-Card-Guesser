@@ -160,6 +160,18 @@ footer img {
 	margin: none;
 }
 
+.GuessOptions {
+	display: none;
+	position: absolute;
+	padding: 1rem;
+	z-index: 1;
+}
+.show {
+	display: block;
+	background-color: #fff9ed;
+	color: black;
+}
+
 .clues {
 	display: flex;
 	flex-direction: column;

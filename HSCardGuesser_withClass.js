@@ -4,6 +4,7 @@ cardSpitter.addEventListener("click", cardSpit);
 const clues = document.querySelector(".clues");
 const artContainer = document.querySelector("#artContainer");
 var SpittedCard;
+
 // elements and function to verify user input
 const inputGuess = document.querySelector("#inputGuess");
 const buttonGuess = document.querySelector("#buttonGuess");
