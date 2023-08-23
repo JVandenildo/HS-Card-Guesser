@@ -1,20 +1,28 @@
 // elements and function to verify user input
 var cardName = [];
 const inputGuess = document.querySelector("#inputGuess");
+const GuessOptions = document.querySelector(".GuessOptions");
 
 function CardSearch() {
-	let GuessOptions = document.querySelector(".GuessOptions");
-	GuessOptions.classList.toggle("show");
+	switch (inputGuess.value) {
+		case "":
+			GuessOptions.classList.remove("show");
 
-	for (let i = 0; i < cardName.length; i++) {
-		if (!cardName[i].includes(inputGuess.value)) {
-			GuessOptions.innerHTML = "Nothing yet...";
-		} else {
-			GuessOptions.innerHTML = `${cardName[i]}<br>`;
-		}
+			break;
+		default:
+			GuessOptions.innerHTML = "";
+			GuessOptions.classList.add("show");
+			var titles = cardName.filter((title) => title.includes(inputGuess.value));
+
+			for (let i in titles) {
+				GuessOptions.insertAdjacentHTML(
+					"beforeend",
+					`<div class="guessName">${titles[i]}</div>`
+				);
+			}
+
+			break;
 	}
-
-	return true;
 }
 
 const apiURL =
@@ -33,6 +41,7 @@ function getNames(cardAPI) {
 		let { name } = cardAPI[i];
 		cardName.push(name);
 	}
+	console.log(cardName[0], cardName[cardName.length - 1]);
 
 	return cardName;
 }

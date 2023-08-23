@@ -105,10 +105,12 @@
 						placeholder="Guess"
 						id="inputGuess"
 						name="inputGuess"
+						oninput="CardSearch()"
 						spellcheck="false"
-						onkeyup="CardSearch()"
 					/>
-					<div class="GuessOptions"></div>
+					<div class="GuessOptions">
+						<div class="guessName"></div>
+					</div>
 					<button id="buttonGuess">JACKPOT!</button>
 				</div>
 

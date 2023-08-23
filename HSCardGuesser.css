@@ -163,13 +163,23 @@ footer img {
 .GuessOptions {
 	display: none;
 	position: absolute;
-	padding: 1rem;
+	padding: 0.2rem;
 	z-index: 1;
+	max-height: 10rem;
+	overflow-y: scroll;
 }
 .show {
 	display: block;
 	background-color: #fff9ed;
 	color: black;
+	border-radius: 0 0 85px 85px;
+}
+.guessName {
+	padding: 0.2rem 0.8rem;
+	cursor: pointer;
+}
+.guessName:hover {
+	background-color: darkkhaki;
 }
 
 .clues {
