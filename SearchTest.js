@@ -2,6 +2,13 @@
 var cardName = [];
 const inputGuess = document.querySelector("#inputGuess");
 const GuessOptions = document.querySelector(".GuessOptions");
+const guessName = document.querySelector(".guessName");
+
+function guessSelection(guess) {
+	inputGuess.value = guess;
+
+	return console.log(guess);
+}
 
 function CardSearch() {
 	switch (inputGuess.value) {
@@ -12,12 +19,15 @@ function CardSearch() {
 		default:
 			GuessOptions.innerHTML = "";
 			GuessOptions.classList.add("show");
-			var titles = cardName.filter((title) => title.includes(inputGuess.value));
+
+			const titles = cardName.filter((title) =>
+				title.toLowerCase().includes(inputGuess.value.toLowerCase())
+			);
 
 			for (let i in titles) {
 				GuessOptions.insertAdjacentHTML(
 					"beforeend",
-					`<div class="guessName">${titles[i]}</div>`
+					`<div class="guessName" onclick="guessSelection('${titles[i]}')">${titles[i]}</div>`
 				);
 			}
 

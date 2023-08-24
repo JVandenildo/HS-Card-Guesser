@@ -172,7 +172,7 @@ footer img {
 	display: block;
 	background-color: #fff9ed;
 	color: black;
-	border-radius: 0 0 85px 85px;
+	border-radius: 0 0 5% 5%;
 }
 .guessName {
 	padding: 0.2rem 0.8rem;
@@ -215,5 +215,6 @@ footer img {
 	margin: 0.8vh;
 	border: 0.3rem solid #1e1e1e;
 	-webkit-text-fill-color: #1e1e1e;
+	border-radius: 10%;
 	height: fit-content;
 }
