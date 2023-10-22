@@ -1,3 +1,15 @@
+:root {
+	--font-all: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	--blue-neon: #46d7ff;
+	--blue-stone: #226b80;
+	--grey-stone: #848563;
+	--yellow-button: #f1f012;
+	--yellow-button-shadow: #737308;
+	--old-paper: #fffae6;
+	--new-paper: #e6e8ff;
+}
+
 html,
 body {
 	min-height: 100%;
@@ -6,10 +18,10 @@ body {
 
 body {
 	background-color: #252525;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-family: var(--font-all);
 	margin: 0%;
 	font-size: 12pt;
-	color: lightgray;
+	color: var(--new-paper);
 }
 
 h1,
@@ -20,8 +32,7 @@ h4,
 h5,
 h6,
 button {
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	font-family: var(--font-all);
 	font-weight: bolder;
 }
 h1,
@@ -31,7 +42,7 @@ h4,
 h4,
 h5,
 h6 {
-	color: whitesmoke;
+	color: var(--new-paper);
 }
 
 input,
@@ -43,11 +54,11 @@ label {
 }
 
 a:link {
-	color: #46d7ff;
+	color: var(--blue-neon);
 	text-decoration: none;
 }
 a:visited {
-	color: #959780;
+	color: var(--blue-stone);
 	text-decoration: none;
 }
 
@@ -66,9 +77,7 @@ button:hover {
 
 footer {
 	background-color: #1e1e1e;
-	padding: 10px;
 	height: fit-content;
-	right: 0px;
 	text-align: center;
 	justify-content: center;
 	font-family: Arial, Helvetica;
@@ -82,7 +91,7 @@ footer img {
 }
 #aboutAuthor,
 #specialThanks {
-	margin: 0 1.5rem;
+	margin: 0.5rem 1.5rem;
 }
 
 .rules {
@@ -110,53 +119,53 @@ footer img {
 }
 
 #cardSpitter {
-	background-color: #848563;
-	border: 0.2rem solid #848563;
+	background-color: var(--grey-stone);
+	border: 0.2rem solid var(--grey-stone);
 	border-radius: 42%;
 	font-size: 1.4rem;
 	margin: 2rem;
 	width: calc(17rem - 0.8rem);
-	box-shadow: 0rem 0rem 1rem #68eae7;
-	text-shadow: 0rem 0rem 0.1rem #68eae7;
-	color: #68eae7;
+	box-shadow: 0rem 0rem 1rem var(--blue-neon);
+	text-shadow: 0rem 0rem 0.1rem var(--blue-neon);
+	color: var(--blue-neon);
 }
 #cardSpitter:active {
-	background-color: #5e5b4b;
-	border: 0.2rem solid #5e5b4b;
+	background-color: var(--grey-stone);
+	border: 0.2rem solid var(--grey-stone);
 	border-radius: 42%;
-	box-shadow: 0rem 0rem 0rem #5cd1cf;
-	text-shadow: 0rem 0rem 0rem #5cd1cf;
-	color: #5cd1cf;
+	box-shadow: 0rem 0rem 0rem var(--blue-neon);
+	text-shadow: 0rem 0rem 0rem var(--blue-neon);
+	color: var(--blue-stone);
 }
 
 .lucky-guess {
 	border-radius: 85px;
 	border: 1vh solid #1e1e1e;
-	background: #fff9ed;
+	background: var(--new-paper);
 	margin: 0.6vh;
 	padding: 0.6vh;
 }
 #inputGuess {
-	border: 5px solid #fff9ed;
-	background: #fff9ed;
+	border: 5px solid var(--new-paper);
+	background: var(--new-paper);
 	max-width: 14rem;
 }
 #buttonGuess {
-	background: #f1f012;
-	border-right: 4px solid #737308;
-	border-bottom: 4px solid #737308;
-	border-left: 0px solid #f1f012;
-	border-top: 0px solid #f1f012;
-	box-shadow: 0px 0px 1.6vh #595c55;
+	background: var(--yellow-button);
+	border-right: 4px solid var(--yellow-button-shadow);
+	border-bottom: 4px solid var(--yellow-button-shadow);
+	border-left: 0px solid var(--yellow-button);
+	border-top: 0px solid var(--yellow-button);
+	box-shadow: 0px 0px 1.6vh var(--grey-stone);
 	margin: none;
 }
 #buttonGuess:active {
-	border: 2px solid #f1f012;
-	border-right: 2px solid #f1f012;
-	border-bottom: 2px solid #f1f012;
-	border-left: 2px solid #f1f012;
-	border-top: 2px solid #f1f012;
-	box-shadow: 0px 0px 0vh #595c55;
+	border: 2px solid var(--yellow-button);
+	border-right: 2px solid var(--yellow-button);
+	border-bottom: 2px solid var(--yellow-button);
+	border-left: 2px solid var(--yellow-button);
+	border-top: 2px solid var(--yellow-button);
+	box-shadow: 0px 0px 0vh var(--grey-stone);
 	margin: none;
 }
 
@@ -170,7 +179,7 @@ footer img {
 }
 .show {
 	display: block;
-	background-color: #fff9ed;
+	background-color: var(--new-paper);
 	color: black;
 	border-radius: 0 0 5% 5%;
 }
@@ -179,7 +188,7 @@ footer img {
 	cursor: pointer;
 }
 .guessName:hover {
-	background-color: darkkhaki;
+	background-color: var(--old-paper);
 }
 
 .clues {
@@ -191,8 +200,8 @@ footer img {
 	padding: 0.5rem;
 }
 .clueHeader {
-	font-size: 12pt;
-	color: #fff9ed;
+	font-size: 13pt;
+	color: var(--new-paper);
 }
 
 .finalStatement {
@@ -206,7 +215,7 @@ footer img {
 }
 
 .lastGuesses {
-	background: #fff9ed;
+	background: var(--old-paper);
 	position: fixed;
 	z-index: 99;
 	right: 0;
