@@ -10,13 +10,21 @@ const inputGuess = document.querySelector("#inputGuess");
 const buttonGuess = document.querySelector("#buttonGuess");
 const finalStatement = document.querySelector(".finalStatement");
 buttonGuess.addEventListener("click", luckTester);
+const GuessOptions = document.querySelector(".GuessOptions");
+const guessName = document.querySelector(".guessName");
 
 class Card {
+	/**
+	 *
+	 * @param {string} title
+	 * @param {string} id
+	 */
 	constructor(title, id) {
 		this._title = title;
 		this._id = id;
 		this._artist;
 		this._type;
+		this._allNames = [];
 
 		this._tries = 0; // important to the game as a whole
 		this._cluesList = []; // important to the game
@@ -24,11 +32,17 @@ class Card {
 			"https://art.hearthstonejson.com/v1/render/latest/enUS/512x/"; // display the card's art
 	}
 
+	/**
+	 * @returns {string}
+	 */
 	get ArtCard() {
 		this.ArtCard = this._id;
 
 		return this._artAPI;
 	}
+	/**
+	 * @param {string} string
+	 */
 	set ArtCard(string) {
 		this._artAPI = `${this._artAPI}${string}.png`;
 	}
@@ -45,6 +59,9 @@ class Card {
 			return false;
 		}
 	}
+	/**
+	 * @param {number} number
+	 */
 	set Tries(number) {
 		// what happens when trying to set a property to this value?
 		// receives an argument
@@ -119,8 +136,28 @@ class Card {
 		}
 		return this._cluesList;
 	}
+	/**
+	 * @param {Object[]} array
+	 * @param {string} array[]
+	 */
 	set CluesList(array) {
 		this._cluesList = array;
+	}
+
+	/**
+	 * @returns {Object[]}
+	 */
+	get allNames() {
+		console.log(this._allNames);
+
+		return this._allNames;
+	}
+	/**
+	 * @param {Object[]} array
+	 * @param {string} array[]
+	 */
+	set allNames(array) {
+		this._allNames = this._allNames.push(array);
 	}
 
 	cardFetch() {
@@ -137,20 +174,35 @@ class Card {
 			);
 	}
 
+	/**
+	 * @returns {string}
+	 */
 	get Title() {
 		return this._title.toLowerCase();
 	}
+	/**
+	 * @param {string} string
+	 */
 	set Title(string) {
 		this._title = string;
 	}
 
+	/**
+	 * @returns {string}
+	 */
 	get Type() {
 		return this._type;
 	}
+	/**
+	 * @param {string} string
+	 */
 	set Type(string) {
 		this._type = string.toLowerCase();
 	}
 
+	/**
+	 * @returns {string}
+	 */
 	get Artist() {
 		if (this._artist === undefined) {
 			return `don't know who`;
@@ -158,41 +210,75 @@ class Card {
 			return this._artist;
 		}
 	}
+	/**
+	 * @param {string} string
+	 */
 	set Artist(string) {
 		this._artist = string;
 	}
 
+	/**
+	 * @returns {number}
+	 */
 	get Attack() {
 		return this._attack;
 	}
+	/**
+	 * @param {number} number
+	 */
 	set Attack(number) {
 		this._attack = number;
 	}
 
+	/**
+	 * @returns {number}
+	 */
 	get Durability() {
 		return this._durability;
 	}
+	/**
+	 * @param {number} number
+	 */
 	set Durability(number) {
 		this._durability = number;
 	}
 
+	/**
+	 * @returns {number}
+	 */
 	get Armor() {
 		return this._armor;
 	}
+
+	/**
+	 * @param {number} number
+	 */
 	set Armor(number) {
 		this._armor = number;
 	}
 
+	/**
+	 * @returns {number}
+	 */
 	get Health() {
 		return this._health;
 	}
+	/**
+	 * @param {number} number
+	 */
 	set Health(number) {
 		this._health = number;
 	}
 
+	/**
+	 * @returns {string}
+	 */
 	get Mechanics() {
 		return this._mechanics;
 	}
+	/**
+	 * @param {string} string
+	 */
 	set Mechanics(string) {
 		this._mechanics = string;
 	}
@@ -204,17 +290,29 @@ class Card {
 			return `belongs to ${this._cardClass.toLowerCase()}s`;
 		}
 	}
+	/**
+	 * @param {string} string
+	 */
 	set CardClass(string) {
 		this._cardClass = string;
 	}
 
+	/**
+	 * @returns {string}
+	 */
 	get Classes() {
 		return this._classes.toLowerCase();
 	}
+	/**
+	 * @param {string} string
+	 */
 	set Classes(string) {
 		this._classes = string;
 	}
 
+	/**
+	 * @returns {string}
+	 */
 	get Rarity() {
 		switch (this._rarity) {
 			case "FREE":
@@ -224,10 +322,16 @@ class Card {
 				return `${this._rarity.toLowerCase()} card`;
 		}
 	}
+	/**
+	 * @param {string} string
+	 */
 	set Rarity(string) {
 		this._rarity = string;
 	}
 
+	/**
+	 * @returns {string}
+	 */
 	get SpellSchool() {
 		switch (this._spellSchool) {
 			case undefined:
@@ -237,10 +341,16 @@ class Card {
 				return `belongs to ${this._spellSchool.toLowerCase()} school of magic`;
 		}
 	}
+	/**
+	 * @param {string} string
+	 */
 	set SpellSchool(string) {
 		this._spellSchool = string;
 	}
 
+	/**
+	 * @returns {string}
+	 */
 	get Race() {
 		switch (this._race) {
 			case undefined:
@@ -250,17 +360,29 @@ class Card {
 				return this._race.toLowerCase();
 		}
 	}
+	/**
+	 * @param {string} string
+	 */
 	set Race(string) {
 		this._race = string;
 	}
 
+	/**
+	 * @returns {string}
+	 */
 	get Text() {
 		return `'${this._text}'`;
 	}
+	/**
+	 * @param {string} string
+	 */
 	set Text(string) {
 		this._text = string;
 	}
 
+	/**
+	 * @returns {string}
+	 */
 	get Flavor() {
 		if (this._flavor == undefined) {
 			return `no flavor`;
@@ -268,27 +390,46 @@ class Card {
 			return `'${this._flavor}'`;
 		}
 	}
+	/**
+	 * @param {string} string
+	 */
 	set Flavor(string) {
 		this._flavor = string;
 	}
 
+	/**
+	 * @returns {string}
+	 */
 	get Cost() {
 		return `costs ${this._cost} mana`;
 	}
+	/**
+	 * @param {number} number
+	 */
 	set Cost(number) {
 		this._cost = number;
 	}
-
+	/**
+	 * @returns {string}
+	 */
 	get Id() {
 		return this._id;
 	}
+	/**
+	 * @param {string} string
+	 */
 	set Id(string) {
 		this._id = string;
 	}
-
+	/**
+	 * @returns {string}
+	 */
 	get Set() {
 		return this._set;
 	}
+	/**
+	 * @param {string} string
+	 */
 	set Set(string) {
 		this._set = string;
 	}
@@ -296,6 +437,11 @@ class Card {
 	_cardDestructed(jsonCard) {
 		let date = new Date();
 		let randomNumber = Math.floor(Math.random(date) * 3845);
+
+		for (let i in jsonCard) {
+			let { name } = jsonCard[i];
+			this._allNames.push(name);
+		}
 
 		let {
 			id,
@@ -359,8 +505,14 @@ class Card {
 	}
 
 	getInfo() {
-		console.log(`Tries: ${this.Tries};\nMax tries: ${this.CluesList.length}.`);
-		// console.log(`Title: ${this.Title}.`); // testing purpose
+		console.clear();
+		console.log(
+			`Tries: ${this.Tries};\nMax tries: ${this.CluesList.length};\nTitle: ${
+				this.Title
+			};\nFirst card (list): ${this._allNames[0]};\nLast card (list): ${
+				this._allNames[this._allNames.length - 1]
+			}.\n${this._allNames.length}`
+		);
 
 		return true;
 	}
@@ -511,4 +663,40 @@ function gameOver() {
 		"I'm sorry, comrade!<br>Spit another card if you want to try again.";
 
 	return true;
+}
+
+function CardSearch() {
+	switch (inputGuess.value) {
+		case "":
+			GuessOptions.classList.remove("show");
+
+			break;
+		default:
+			GuessOptions.innerHTML = "";
+			GuessOptions.classList.add("show");
+
+			const titles = SpittedCard.allNames.filter((title) =>
+				title.toLowerCase().includes(inputGuess.value.toLowerCase())
+			);
+
+			for (let i in titles) {
+				GuessOptions.insertAdjacentHTML(
+					"beforeend",
+					`<div class="guessName" onclick="guessSelection('${titles[i]}')">${titles[i]}</div>`
+				);
+			}
+
+			break;
+	}
+}
+
+/**
+ *
+ * @param {string} guess
+ * @returns {void}
+ */
+function guessSelection(guess) {
+	inputGuess.value = guess;
+
+	return console.log(guess);
 }
