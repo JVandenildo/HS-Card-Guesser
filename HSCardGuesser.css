@@ -177,7 +177,7 @@ footer img {
 .GuessOptions {
 	display: none;
 	position: absolute;
-	padding: 0.2rem;
+	padding: 0.5rem;
 	z-index: 1;
 	max-height: 10rem;
 	overflow-y: scroll;
@@ -194,11 +194,14 @@ footer img {
 .guessName {
 	padding: 0.2rem 0.8rem;
 	cursor: pointer;
-	font-weight: 300;
+	font-weight: 295;
+	display: flex;
+	justify-content: start;
+	align-items: center;
 }
 .guessName:hover {
 	background-color: var(--old-paper);
-	font-weight: 600;
+	font-weight: 590;
 }
 
 .clues {
