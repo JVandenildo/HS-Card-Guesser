@@ -6,7 +6,7 @@
 	--grey-stone: #848563;
 	--yellow-button: #f1f012;
 	--yellow-button-shadow: #737308;
-	--old-paper: #fffae6;
+	--old-paper: #dcdfff;
 	--new-paper: #e6e8ff;
 }
 
@@ -113,9 +113,14 @@ footer img {
 	top: 0;
 	width: calc(100% - 22rem);
 }
-.gameContainer img {
+#artContainer,
+#artContainer img {
+	height: 25rem;
 	max-width: 512px;
-	max-height: 512px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 }
 
 #cardSpitter {
@@ -148,7 +153,7 @@ footer img {
 #inputGuess {
 	border: 5px solid var(--new-paper);
 	background: var(--new-paper);
-	max-width: 14rem;
+	width: 10rem;
 }
 #buttonGuess {
 	background: var(--yellow-button);
@@ -181,14 +186,19 @@ footer img {
 	display: block;
 	background-color: var(--new-paper);
 	color: black;
-	border-radius: 0 0 5% 5%;
+	border-radius: 5%;
+	position: absolute;
+	bottom: 5.5rem;
+	width: 18rem;
 }
 .guessName {
 	padding: 0.2rem 0.8rem;
 	cursor: pointer;
+	font-weight: 300;
 }
 .guessName:hover {
 	background-color: var(--old-paper);
+	font-weight: 600;
 }
 
 .clues {

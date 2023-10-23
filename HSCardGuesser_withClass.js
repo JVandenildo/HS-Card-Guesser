@@ -148,8 +148,6 @@ class Card {
 	 * @returns {Object[]}
 	 */
 	get allNames() {
-		console.log(this._allNames);
-
 		return this._allNames;
 	}
 	/**
@@ -387,7 +385,7 @@ class Card {
 		if (this._flavor == undefined) {
 			return `no flavor`;
 		} else {
-			return `'${this._flavor}'`;
+			return `"${this._flavor}"`;
 		}
 	}
 	/**
@@ -504,17 +502,22 @@ class Card {
 		return true;
 	}
 
+	/**
+	 *
+	 * @returns {void}
+	 */
 	getInfo() {
 		console.clear();
-		console.log(
-			`Tries: ${this.Tries};\nMax tries: ${this.CluesList.length};\nTitle: ${
-				this.Title
-			};\nFirst card (list): ${this._allNames[0]};\nLast card (list): ${
-				this._allNames[this._allNames.length - 1]
-			}.\n${this._allNames.length}`
-		);
 
-		return true;
+		return console.log(
+			// Title: ${
+			// 	this.Title
+			// };\n
+			`Tries: ${this.Tries};\nMax tries: ${this.CluesList.length};\n
+			First card (list): ${this._allNames[0]};\nLast card (list): ${
+				this._allNames[this._allNames.length - 1]
+			};\n${this._allNames.length} number of possible guesses.`
+		);
 	}
 }
 
@@ -545,6 +548,8 @@ function startGame() {
 }
 
 function luckTester() {
+	GuessOptions.classList.remove("show");
+
 	if (!inputGuess.value || !SpittedCard) {
 		alert(
 			"Don't need no rush, champion!\nSpit a card and give your guess first."
@@ -612,7 +617,7 @@ function clueGenerator() {
 			clues.insertAdjacentHTML(
 				"beforeend",
 				`<div><b class="clueHeader">Clue ${SpittedCard.Tries}:</b> ${
-					SpittedCard.ClueList[SpittedCard.Tries - 1]
+					SpittedCard.CluesList[SpittedCard.Tries - 1]
 				}.</div>`
 			);
 
@@ -697,6 +702,4 @@ function CardSearch() {
  */
 function guessSelection(guess) {
 	inputGuess.value = guess;
-
-	return console.log(guess);
 }
