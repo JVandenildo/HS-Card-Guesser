@@ -14,14 +14,7 @@ As the name suggests, this is a guessing game, the player must guess the card wi
 
 ## About this project
 
-So far there are a few versions of this project, I'm updating it as my programming studies progresses. The previous versions may be outdated as the other versions appears. Below is a guideline to what are the versions.
-
-1. Programming/JavaScript newbie;
-2. JavaScript classes;
-3. TypeScript;
-4. React.
-
-I'm using this project to practice HTML and CSS also. So probably there will be some changes regarding them.
+I'm using this project to study frontend development with focus on JavaScript.
 
 ## Special thanks
 
