@@ -159,7 +159,7 @@ class Card {
 	}
 
 	cardFetch() {
-		let apiURL = `https://api.hearthstonejson.com/v1/95431/enUS/cards.collectible.json`;
+		let apiURL = `https://api.hearthstonejson.com/v1/latest/enUS/cards.collectible.json`;
 
 		fetch(apiURL)
 			.then((response) => response.json())
@@ -492,7 +492,7 @@ class Card {
 			case "HERO_SKINS":
 			case "ENCHANTMENT":
 			case "HERO_POWER":
-				console.log("Banned card.");
+				console.log(`${SpittedCard.Title} is banned.`);
 				cardSpit();
 
 				break;
@@ -512,10 +512,11 @@ class Card {
 			// Title: ${
 			// 	this.Title
 			// };\n
-			`Tries: ${this.Tries};\nMax tries: ${this.CluesList.length};\n
-			First card (list): ${this._allNames[0]};\nLast card (list): ${
-				this._allNames[this._allNames.length - 1]
-			};\n${this._allNames.length} number of possible guesses.`
+			`Tries: ${this.Tries};
+Max tries: ${this.CluesList.length};
+First card (list): ${this.allNames[0]};
+Last card (list): ${this.allNames[this.allNames.length - 1]};
+${this.allNames.length} possible guesses.`
 		);
 	}
 }
@@ -523,17 +524,20 @@ class Card {
 function cardSpit() {
 	SpittedCard = new Card("none", undefined);
 	SpittedCard.cardFetch();
-	SpittedCard.cardBanner();
 
 	return SpittedCard;
 }
 
 function startGame() {
+	SpittedCard.cardBanner();
+
 	inputGuess.value = "";
 	lastGuesses.innerHTML = "<h3>Last Guesses</h3>";
 	clues.innerHTML = "";
 	finalStatement.innerHTML = "";
 	buttonGuess.addEventListener("click", luckTester);
+	artContainer.innerHTML = "";
+	SpittedCard.getInfo();
 
 	clues.insertAdjacentHTML(
 		"beforeend",
@@ -706,4 +710,6 @@ function CardSearch() {
  */
 function guessSelection(guess) {
 	inputGuess.value = guess;
+
+	return console.log(guess);
 }
