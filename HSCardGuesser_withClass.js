@@ -24,12 +24,12 @@ class Card {
 		this._id = id;
 		this._artist;
 		this._type;
-		this._allNames = [];
 
-		this._tries = 0; // important to the game as a whole
-		this._cluesList = []; // important to the game
-		this._artAPI =
-			"https://art.hearthstonejson.com/v1/render/latest/enUS/512x/"; // display the card's art
+		// important to the game as a whole
+		this._allNames = [];
+		this._tries = 0;
+		this._cluesList = [];
+		this._artAPI = `https://art.hearthstonejson.com/v1/render/latest/enUS/512x/`; // display the card's art
 	}
 
 	/**
@@ -159,8 +159,7 @@ class Card {
 	}
 
 	cardFetch() {
-		let apiURL =
-			"https://api.hearthstonejson.com/v1/95431/enUS/cards.collectible.json";
+		let apiURL = `https://api.hearthstonejson.com/v1/95431/enUS/cards.collectible.json`;
 
 		fetch(apiURL)
 			.then((response) => response.json())
@@ -680,8 +679,13 @@ function CardSearch() {
 			GuessOptions.innerHTML = "";
 			GuessOptions.classList.add("show");
 
-			const titles = SpittedCard.allNames.filter((title) =>
-				title.toLowerCase().includes(inputGuess.value.toLowerCase())
+			const titles = SpittedCard.allNames.filter(
+				/**
+				 *
+				 * @param {string} title
+				 * @returns {string}
+				 */
+				(title) => title.toLowerCase().includes(inputGuess.value.toLowerCase())
 			);
 
 			for (let i in titles) {
