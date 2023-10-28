@@ -5,6 +5,7 @@ const clues = document.querySelector(".clues");
 const artContainer = document.querySelector("#artContainer");
 var SpittedCard;
 
+const luckyGuess = document.querySelector(".luckyGuess");
 // elements and function to verify user input
 const inputGuess = document.querySelector("#inputGuess");
 const buttonGuess = document.querySelector("#buttonGuess");
@@ -551,7 +552,8 @@ function startGame() {
 }
 
 function luckTester() {
-	GuessOptions.classList.remove("show");
+	GuessOptions.classList.remove("GuessOptionShow");
+	luckyGuess.classList.remove("luckyGuessShow");
 
 	if (!inputGuess.value || !SpittedCard) {
 		alert(
@@ -676,12 +678,14 @@ function gameOver() {
 function CardSearch() {
 	switch (inputGuess.value) {
 		case "":
-			GuessOptions.classList.remove("show");
+			GuessOptions.classList.remove("GuessOptionShow");
+			luckyGuess.classList.remove("luckyGuessShow");
 
 			break;
 		default:
 			GuessOptions.innerHTML = "";
-			GuessOptions.classList.add("show");
+			GuessOptions.classList.add("GuessOptionShow");
+			luckyGuess.classList.add("luckyGuessShow");
 
 			const titles = SpittedCard.allNames.filter(
 				/**

@@ -31,7 +31,11 @@
 					</li>
 					<li>
 						A correct guess must have all characters of the card's name correct
-						(may have lower case);
+						(may have lower case);<br />
+						<span style="font-size: small"
+							><b>Important:</b> you may use the list with names as help, but
+							the list contains more than just cards and heroes.</span
+						>
 					</li>
 					<li>After a game over, it's game over.</li>
 				</ol>
@@ -94,8 +98,8 @@
 					<!-- button for card generation -->
 					<button id="cardSpitter">CARD SPITTER</button>
 				</div>
-				<p>Important: the list here contain more than just cards and heroes.</p>
-				<div class="lucky-guess">
+				<div class="luckyGuess">
+					<div class="GuessOptions"></div>
 					<!-- guess input & button -->
 					<input
 						type="text"
@@ -104,8 +108,8 @@
 						name="inputGuess"
 						oninput="CardSearch()"
 						spellcheck="false"
+						translate="no"
 					/>
-					<div class="GuessOptions"></div>
 					<button id="buttonGuess">JACKPOT!</button>
 				</div>
 
