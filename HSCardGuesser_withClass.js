@@ -149,14 +149,16 @@ class Card {
 	 * @returns {Object[]}
 	 */
 	get allNames() {
-		return this._allNames;
+		let UniqueNames = [...new Set(this._allNames)];
+
+		return UniqueNames;
 	}
 	/**
 	 * @param {Object[]} array
 	 * @param {string} array[]
 	 */
 	set allNames(array) {
-		this._allNames = this._allNames.push(array);
+		this._allNames = array;
 	}
 
 	cardFetch() {
