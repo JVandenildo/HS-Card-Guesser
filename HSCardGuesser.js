@@ -3,7 +3,7 @@ const cardSpitter = document.querySelector("#cardSpitter");
 cardSpitter.addEventListener("click", cardSpit);
 const clues = document.querySelector(".clues");
 const artContainer = document.querySelector("#artContainer");
-var SpittedCard;
+var SpittedCard = {};
 
 const luckyGuess = document.querySelector(".luckyGuess");
 // elements and function to verify user input
