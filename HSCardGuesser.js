@@ -639,6 +639,9 @@ function clueGenerator() {
 }
 
 // function to deliver the points
+/**
+ * @returns {void}
+ */
 function gameWon() {
 	buttonGuess.removeEventListener("click", luckTester);
 	artContainer.innerHTML = `<img src="${SpittedCard.ArtCard}"/>`;
@@ -649,34 +652,37 @@ function gameWon() {
 	switch (SpittedCard.Tries) {
 		case 1:
 			finalPoints = Math.round(initialPoints / 1);
-			finalStatement.innerHTML = `Congratulations, champion!<br>After ${SpittedCard.Tries} guess, you've earned ${finalPoints} points.`;
 
-			break;
+			return (finalStatement.innerHTML = `Congratulations, champion!<br>After ${SpittedCard.Tries} guess, you've earned ${finalPoints} points.`);
+
 		case 2:
 			finalPoints = Math.round(initialPoints / 1);
-			finalStatement.innerHTML = `Congratulations, champion!<br>After ${SpittedCard.Tries} guesses, you've earned ${finalPoints} points.`;
 
-			break;
+			return (finalStatement.innerHTML = `Congratulations, champion!<br>After ${SpittedCard.Tries} guesses, you've earned ${finalPoints} points.`);
 
 		default:
 			finalPoints = Math.round(initialPoints / (SpittedCard.Tries - 1));
-			finalStatement.innerHTML = `Congratulations, champion!<br>
-			After ${SpittedCard.Tries} guesses, you've earned ${finalPoints} points.`;
 
-			break;
+			return (finalStatement.innerHTML = `Congratulations, champion!<br>
+			After ${SpittedCard.Tries} guesses, you've earned ${finalPoints} points.`);
 	}
 }
 
+/**
+ *
+ * @returns {void}
+ */
 function gameOver() {
 	buttonGuess.removeEventListener("click", luckTester);
 	artContainer.innerHTML = `<img src="${SpittedCard.ArtCard}"/>`;
 
-	finalStatement.innerHTML =
-		"I'm sorry, comrade!<br>Spit another card if you want to try again.";
-
-	return true;
+	return (finalStatement.innerHTML =
+		"I'm sorry, comrade!<br>Spit another card if you want to try again.");
 }
 
+/**
+ * @returns {void}
+ */
 function CardSearch() {
 	switch (inputGuess.value) {
 		case "":
