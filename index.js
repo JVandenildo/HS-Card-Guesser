@@ -505,7 +505,6 @@ class Card {
 	}
 
 	/**
-	 *
 	 * @returns {void}
 	 */
 	getInfo() {
@@ -669,7 +668,6 @@ function gameWon() {
 }
 
 /**
- *
  * @returns {void}
  */
 function gameOver() {
@@ -716,7 +714,6 @@ function CardSearch() {
 }
 
 /**
- *
  * @param {string} guess
  * @returns {void}
  */
