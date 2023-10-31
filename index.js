@@ -16,7 +16,6 @@ const guessName = document.querySelector(".guessName");
 
 class Card {
 	/**
-	 *
 	 * @param {string} title
 	 * @param {string} id
 	 */
@@ -138,31 +137,29 @@ class Card {
 		return this._cluesList;
 	}
 	/**
-	 * @param {Object[]} array
-	 * @param {string} array[]
+	 * @param {string[]} array
 	 */
 	set CluesList(array) {
 		this._cluesList = array;
 	}
 
 	/**
-	 * @returns {Object[]}
+	 * @returns {string[]}
 	 */
 	get allNames() {
-		let UniqueNames = [...new Set(this._allNames)];
+		const UniqueNames = [...new Set(this._allNames)];
 
 		return UniqueNames;
 	}
 	/**
-	 * @param {Object[]} array
-	 * @param {string} array[]
+	 * @param {string[]} array
 	 */
 	set allNames(array) {
 		this._allNames = array;
 	}
 
 	cardFetch() {
-		let apiURL = `https://api.hearthstonejson.com/v1/latest/enUS/cards.collectible.json`;
+		const apiURL = `https://api.hearthstonejson.com/v1/latest/enUS/cards.collectible.json`;
 
 		fetch(apiURL)
 			.then((response) => response.json())
@@ -435,15 +432,15 @@ class Card {
 	}
 
 	_cardDestructed(jsonCard) {
-		let date = new Date();
-		let randomNumber = Math.floor(Math.random(date) * 3845);
-
 		for (let i in jsonCard) {
-			let { name } = jsonCard[i];
+			const { name } = jsonCard[i];
 			this._allNames.push(name);
 		}
 
-		let {
+		const date = new Date();
+		const randomNumber = Math.floor(Math.random(date) * this.allNames.length);
+
+		const {
 			id,
 			durability,
 			attack,
@@ -695,7 +692,6 @@ function CardSearch() {
 
 			const titles = SpittedCard.allNames.filter(
 				/**
-				 *
 				 * @param {string} title
 				 * @returns {string}
 				 */
