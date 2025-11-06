@@ -1,20 +1,11 @@
 # Hearthstone Card Guesser
 
-Hearthstone Card Guesser is a practice project, I'm a newbie programmer so had to do something to practice. If something ain't quite right, or you feel there might be something to add/remove, feel free to contact me.  
+Hearthstone Card Guesser is a practice project, I'm learning how to program so had to do something to practice. If something ain't quite right, or you feel there might be something to add/remove, feel free to contact me.  
 As the name suggests, this is a guessing game, the player must guess the card with given clues. Points are given based on how many clues the player received to guess the card right.
 
-**REMEMBER THE ORIGINAL GAME "HEARTHSTONE" IS A PROPERTY OF BLIZZARD ENTERTAINMENT, ALL RIGHTS ARE RESERVED TO THEM. THE WORK DONE HERE IS FAN MADE!**  
-**PLEASE, VISIT [PLAYHEARTHSTONE.COM](https://hearthstone.blizzard.com/) TO LEARN ABOUT THE ORIGINAL GAME!**
-
-## Summary
-
-1. [Hearthstone Card Guesser](#hearthstone-card-guesser);
-2. [About this project](#about-this-project);
-3. [Special thanks](#special-thanks).
-
-## About this project
-
-I'm using this project to study frontend development with focus on JavaScript.
+> [!IMPORTANT]
+> **REMEMBER THE ORIGINAL GAME "HEARTHSTONE" IS A PROPERTY OF BLIZZARD ENTERTAINMENT, ALL RIGHTS ARE RESERVED TO THEM. THE WORK DONE HERE IS FAN MADE!**  
+> **PLEASE, VISIT [PLAYHEARTHSTONE.COM](https://hearthstone.blizzard.com/) TO LEARN ABOUT THE ORIGINAL GAME!**
 
 ## Special thanks
 
